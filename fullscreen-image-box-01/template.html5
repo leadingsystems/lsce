@@ -1,0 +1,31 @@
+<div class="<?php echo $this->class ?> block text-<?php echo $this->textBrightnessOnImage; ?>"<?php echo $this->cssID ?>>
+    <div class="image-container">
+        <?php
+        if ($obj_image = $this->arrData['getImageObject']($this->image, $this->size)) {
+            ?>
+            <img src="<?php echo $obj_image->src ?>" alt="<?php echo $obj_image->alt; ?>"<?php echo $obj_image->imgSize ?>>
+            <?php
+        }
+        ?>
+    </div>
+    <div class="text-box-wrapper">
+        <div class="text-container">
+            <?php echo '<' . $this->hl . '>' ?><?php echo $this->headline ?><?php echo '</' . $this->hl . '>' ?>
+            <?php
+            if ($this->subheadline) {
+                ?>
+                <h4><?php echo $this->subheadline; ?></h4>
+                <?php
+            }
+            ?>
+            <div class="text"><?php echo $this->text; ?></div>
+            <?php
+            if ($this->hyperlinkText || $this->hyperlinkHref) {
+                ?>
+                <a href="<?php echo $this->hyperlinkHref; ?>"><?php echo $this->hyperlinkText ?: $this->hyperlinkHref; ?></a>
+                <?php
+            }
+            ?>
+        </div>
+    </div>
+</div>
