@@ -1,0 +1,26 @@
+<div class="<?php echo $this->class ?> block image-horizontally-<?php echo $this->imagePositionHorizontally; ?> image-vertically-<?php echo $this->imagePositionVertically; ?><?php echo $this->imageToMiddle ? ' image-to-middle' : ''; ?>"<?php echo $this->cssID ?>>
+    <div>
+        <div>
+            <div class="image-container">
+                <?php
+                if ($obj_image = $this->arrData['getImageObject']($this->image, $this->size)) {
+                    ?>
+                    <img src="<?php echo $obj_image->src ?>" alt="<?php echo $obj_image->alt; ?>"<?php echo $obj_image->imgSize ?>>
+                    <?php
+                }
+                ?>
+            </div>
+            <div class="text-container">
+                <?php echo '<' . $this->hl . '>' ?><?php echo $this->headline ?><?php echo '</' . $this->hl . '>' ?>
+                <div class="text"><?php echo $this->text; ?></div>
+                <?php
+                if ($this->hyperlinkText || $this->hyperlinkHref) {
+                    ?>
+                    <a href="<?php echo $this->hyperlinkHref; ?>"><?php echo $this->hyperlinkText ?: $this->hyperlinkHref; ?></a>
+                    <?php
+                }
+                ?>
+            </div>
+        </div>
+    </div>
+</div>

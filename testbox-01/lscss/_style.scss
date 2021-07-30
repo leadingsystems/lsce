@@ -1,0 +1,118 @@
+$rsc_contentbox-02_breakpoints-to-use: $grid-breakpoints-ls;
+$rsc_contentbox-02_breakpoint-to-single-col-down: 8;
+$rsc_contentbox-02_breakpoint-to-single-col-up: 9;
+
+.ce_rsce_contentbox-02 {
+  background-color: $ls-color-light-grey;
+  position: relative;
+
+  > div {
+    @include ls_contentWrapper;
+
+    > div {
+      @include make-row();
+
+      > div {
+        @include make-col-ready();
+        @include make-col(6);
+
+        @include media-breakpoint-down($rsc_contentbox-02_breakpoint-to-single-col-down, $rsc_contentbox-02_breakpoints-to-use) {
+          @include make-col(12);
+        }
+
+        &.image-container {
+          img {
+            @include media-breakpoint-up($rsc_contentbox-02_breakpoint-to-single-col-up, $rsc_contentbox-02_breakpoints-to-use) {
+              height: 1rem;
+            }
+            min-height: 100%;
+            width: 100%;
+            object-fit: cover;
+          }
+        }
+
+        &.text-container {
+          padding-top: $grid-gutter-width;
+          padding-bottom: $grid-gutter-width;
+          position: relative;
+
+          a {
+            margin-top: $grid-gutter-width;
+            @include ls_roundButton(4rem, 0rem, 3rem);
+          }
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-up($rsc_contentbox-02_breakpoint-to-single-col-up, $rsc_contentbox-02_breakpoints-to-use) {
+    &.image-horizontally-right {
+      > div {
+        > div {
+          > div {
+            &.image-container {
+              order: 2;
+            }
+
+            &.text-container {
+              order: 1;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-down($rsc_contentbox-02_breakpoint-to-single-col-down, $rsc_contentbox-02_breakpoints-to-use) {
+    &.image-vertically-bottom {
+      > div {
+        > div {
+          > div {
+            &.image-container {
+              order: 2;
+            }
+
+            &.text-container {
+              order: 1;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-up($rsc_contentbox-02_breakpoint-to-single-col-up, $rsc_contentbox-02_breakpoints-to-use) {
+    &.image-to-middle {
+      > div {
+        > div {
+          > div {
+            &.image-container {
+              padding-right: 0;
+            }
+
+            &.text-container {
+              padding-left: $grid-gutter-width;
+            }
+          }
+        }
+      }
+    }
+
+    &.image-horizontally-right.image-to-middle {
+      > div {
+        > div {
+          > div {
+            &.image-container {
+              padding-left: 0;
+            }
+
+            &.text-container {
+              padding-right: $grid-gutter-width;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
