@@ -1,7 +1,7 @@
 <?php
 
 $arr_config = [
-    'label' => ['Footer 01'],
+    'label' => ['Footer'],
     'types' => ['content', 'module'],
     'contentCategory' => 'LS',
     'moduleCategory' => 'miscellaneous',
