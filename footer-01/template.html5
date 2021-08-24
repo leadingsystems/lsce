@@ -1,0 +1,31 @@
+<div class="<?php echo $this->class ?> block"<?php echo $this->cssID ?>>
+    <div>
+        <div>
+
+
+            <?php foreach ($this->boxes as $footerboxes): ?>
+                <div>
+                    <?php echo $footerboxes->footerColLabel ?>
+                    <?php echo $footerboxes->text ?>
+
+
+                    <?php foreach ($footerboxes->footerColIcons as $imageId): ?>
+                        <?php if ($image = $this->getImageObject($imageId, $this->size)): ?>
+                            <?php $this->insert('picture_default', $image->picture) ?>
+                        <?php endif ?>
+                    <?php endforeach ?>
+
+                    <?php foreach ($footerboxes->hyperlinkboxes as $box): ?>
+                        <section class="box">
+                            <a href="<?php echo $box->hyperlinkHref; ?>"><?php echo $box->hyperlinkText ?: $box->hyperlinkHref; ?></a>
+                        </section>
+                    <?php endforeach ?>
+                </div>
+            <?php endforeach ?>
+
+
+
+
+        </div>
+    </div>
+</div>
