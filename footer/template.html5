@@ -4,28 +4,36 @@
 
 
             <?php foreach ($this->boxes as $footerboxes): ?>
-                <div>
-                    <?php echo $footerboxes->footerColLabel ?>
-                    <?php echo $footerboxes->text ?>
+            <div>
+
+                <<?= $footerboxes->footerColHeadlineUnit['unit'] ?>>
+                <?= $footerboxes->footerColHeadlineUnit['value'] ?>
+            </<?= $footerboxes->footerColHeadlineUnit['unit'] ?>>
+
+            <?php echo $footerboxes->footerColText ?>
 
 
-                    <?php foreach ($footerboxes->footerColIcons as $imageId): ?>
-                        <?php if ($image = $this->getImageObject($imageId, $this->size)): ?>
-                            <?php $this->insert('picture_default', $image->picture) ?>
-                        <?php endif ?>
-                    <?php endforeach ?>
-
-                    <?php foreach ($footerboxes->hyperlinkboxes as $box): ?>
-                        <section class="box">
-                            <a href="<?php echo $box->hyperlinkHref; ?>"><?php echo $box->hyperlinkText ?: $box->hyperlinkHref; ?></a>
-                        </section>
-                    <?php endforeach ?>
-                </div>
+            <?php foreach ($footerboxes->footerColImage as $imageId): ?>
+                <?php if ($image = $this->getImageObject($imageId, $footerboxes->footerColImageSize)): ?>
+                    <?php $this->insert('picture_default', $image->picture) ?>
+                <?php endif ?>
             <?php endforeach ?>
 
-
-
-
+            <?php foreach ($footerboxes->footerColHyperlink as $hyperlinkBoxes): ?>
+                <section class="box">
+                    <a href="<?php echo $hyperlinkBoxes->hyperlinkHref; ?>"><?php echo $hyperlinkBoxes->hyperlinkText ?: $hyperlinkBoxes->hyperlinkHref; ?></a>
+                </section>
+            <?php endforeach ?>
         </div>
+        <?php endforeach ?>
+
+
+
+
     </div>
 </div>
+</div>
+
+<pre>
+<?php $this->dumpTemplateVars(); ?>
+</pre>

@@ -17,18 +17,20 @@ $arr_config = [
             'minItems' => 1,
             'maxItems' => 4,
             'fields' => array(
-                'footerColLabel' => [
-                    'label' => ['Feld Überschrift 1'],
+                'footerColHeadlineUnit' => [
+                    'label' => ['Überschrift'],
+                    'inputType' => 'inputUnit',
+                    'options' => array('h1', 'h2', 'h3', 'h4', 'h5', 'h6'),
+                    'eval' => array('maxlength'=>200, 'tl_class'=>'w50 clr'),
+                    'sql' => "varchar(255) NOT NULL default 'a:2:{s:5:\"value\";s:0:\"\";s:4:\"unit\";s:2:\"h2\";}'"
+                ],
+                'footerColText' => [
+                    'label' => ['Inhalt'],
                     'inputType' => 'textarea',
-                    'eval' => array('rte' => 'tinyMCE', 'style' => 'height: 220px', 'tl_class' => 'w50'),
+                    'eval' => array('rte' => 'tinyMCE', 'style' => 'height: 220px', 'tl_class' => 'clr'),
                 ],
-                'text' => [
-                    'label' => ['Feld Inhalt 1'],
-                    'inputType' => 'text',
-                    'eval' => array('rte' => 'tinyMCE', 'style' => 'height: 220px', 'tl_class' => 'w50'),
-                ],
-                'footerColIcons' => [
-                    'label' => ['Icons', 'Nur in dem Feld, wo Icons angezeigt werden sollen'],
+                'footerColImage' => [
+                    'label' => ['Bilddatei(en)', 'Nur in dem Feld, wo Bilder angezeigt werden sollen'],
                     'inputType' => 'fileTree',
                     'eval' => [
                         'fieldType' => 'checkbox',
@@ -39,7 +41,14 @@ $arr_config = [
                         'tl_class' => 'w50'
                     ]
                 ],
-                'hyperlinkboxes' => [
+                'footerColImageSize' => [
+                    'label' => array('Bildbreite und Bildhöhe', ''),
+                    'inputType' => 'imageSize',
+                    'reference' => &$GLOBALS['TL_LANG']['MSC'],
+                    'eval' => array('rgxp'=>'digit', 'includeBlankOption'=>true, 'tl_class'=>'w50'),
+                    'options' => \System::getImageSizes()
+                ],
+                'footerColHyperlink' => [
                     'label' => ['Verlinkungen'],
                     'elementLabel' => '%s. Box',
                     'inputType' => 'list',
@@ -65,7 +74,4 @@ $arr_config = [
         ),
     ),
 ];
-
-
-
-
+return $arr_config;
