@@ -8,26 +8,33 @@ $arr_config = [
     'wrapper' => [
         'type' => 'none'
     ],
-    'standardFields' => array('cssID'),
-    'fields' => array(
-        'boxes' => array(
-            'label' => array('Textboxen'),
-            'elementLabel' => '%s. Box',
+    'standardFields' => ['cssID'],
+    'fields' => [
+        'boxes' => [
+            'label' => ['Textspalten'],
+            'elementLabel' => '%s. Spalte',
             'inputType' => 'list',
             'minItems' => 1,
             'maxItems' => 4,
-            'fields' => array(
+            'fields' => [
                 'footerColHeadlineUnit' => [
                     'label' => ['Überschrift'],
                     'inputType' => 'inputUnit',
-                    'options' => array('h1', 'h2', 'h3', 'h4', 'h5', 'h6'),
-                    'eval' => array('maxlength'=>200, 'tl_class'=>'w50 clr'),
+                    'options' => ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
+                    'eval' => [
+                        'maxlength' => 200,
+                        'tl_class' => 'w50 clr'
+                    ],
                     'sql' => "varchar(255) NOT NULL default 'a:2:{s:5:\"value\";s:0:\"\";s:4:\"unit\";s:2:\"h2\";}'"
                 ],
                 'footerColText' => [
                     'label' => ['Inhalt'],
                     'inputType' => 'textarea',
-                    'eval' => array('rte' => 'tinyMCE', 'style' => 'height: 220px', 'tl_class' => 'clr'),
+                    'eval' => [
+                        'rte' => 'tinyMCE',
+                        'style' => 'height: 220px',
+                        'tl_class' => 'clr'
+                    ],
                 ],
                 'footerColImage' => [
                     'label' => ['Bilddatei(en)', 'Nur in dem Feld, wo Bilder angezeigt werden sollen'],
@@ -38,21 +45,26 @@ $arr_config = [
                         'orderField' => 'orderSRC',
                         'filesOnly' => true,
                         'extensions' => Contao\Config::get('validImageTypes'),
+                        'isGallery' => true,
                         'tl_class' => 'w50'
                     ]
                 ],
                 'footerColImageSize' => [
-                    'label' => array('Bildbreite und Bildhöhe', ''),
+                    'label' => ['Bildbreite und Bildhöhe', ''],
                     'inputType' => 'imageSize',
                     'reference' => &$GLOBALS['TL_LANG']['MSC'],
-                    'eval' => array('rgxp'=>'digit', 'includeBlankOption'=>true, 'tl_class'=>'w50'),
+                    'eval' => [
+                        'rgxp' => 'digit',
+                        'includeBlankOption' => true,
+                        'tl_class' => 'w50'
+                    ],
                     'options' => \System::getImageSizes()
                 ],
                 'footerColHyperlink' => [
                     'label' => ['Verlinkungen'],
-                    'elementLabel' => '%s. Box',
+                    'elementLabel' => '%s. Link',
                     'inputType' => 'list',
-                    'fields' => array(
+                    'fields' => [
                         'hyperlinkHref' => [
                             'label' => ['Verlinkung'],
                             'inputType' => 'url',
@@ -81,10 +93,10 @@ $arr_config = [
                                 'tl_class' => 'w50'
                             ]
                         ],
-                    ),
+                    ],
                 ],
-            ),
-        ),
-    ),
+            ],
+        ],
+    ],
 ];
 return $arr_config;
