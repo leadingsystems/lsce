@@ -2,38 +2,56 @@
     <div>
         <div>
 
-
-            <?php foreach ($this->boxes as $footerboxes): ?>
+            <?php foreach ($this->boxes as $footerbox): ?>
             <div>
 
-                <<?= $footerboxes->footerColHeadlineUnit['unit'] ?>>
-                <?= $footerboxes->footerColHeadlineUnit['value'] ?>
-            </<?= $footerboxes->footerColHeadlineUnit['unit'] ?>>
-
-            <?php echo $footerboxes->footerColText ?>
-
-
-            <?php foreach ($footerboxes->footerColImage as $imageId): ?>
-                <?php if ($image = $this->getImageObject($imageId, $footerboxes->footerColImageSize)): ?>
-                    <?php $this->insert('picture_default', $image->picture) ?>
+                <?php if($footerbox->footerColHeadlineUnit['value']): ?>
+                    <<?= $footerbox->footerColHeadlineUnit['unit'] ?>>
+                    <?= $footerbox->footerColHeadlineUnit['value'] ?>
+                    </<?= $footerbox->footerColHeadlineUnit['unit'] ?>>
                 <?php endif ?>
+
+                <?php if($footerbox->footerColText): ?>
+                    <?php echo $footerbox->footerColText ?>
+                <?php endif ?>
+
+                <?php if($footerbox->footerColImage): ?>
+                <ul itemscope itemtype="http://schema.org/ImageGallery">
+                    <?php foreach ($footerbox->footerColImage as $imageId): ?>
+                    <li>
+                        <figure class="image_container">
+                        <?php if ($image = $this->getImageObject($imageId, $footerbox->footerColImageSize)): ?>
+                            <?php $this->insert('picture_default', $image->picture) ?>
+                        <?php endif ?>
+                        </figure>
+                    </li>
+                    <?php endforeach ?>
+                </ul>
+                <?php endif ?>
+
+                <?php if($footerbox->footerColHyperlink): ?>
+                <nav itemscope itemtype="http://schema.org/SiteNavigationElement">
+                    <ul>
+                    <?php foreach ($footerbox->footerColHyperlink as $hyperlinkBox): ?>
+                        <?php $pageId = '/::'.$this->replaceInsertTags("{{page::id}}").'}}/'; ?>
+                        <?php if(preg_match($pageId, $hyperlinkBox->hyperlinkHref)): ?>
+                            <li class="active">
+                                <strong class="active" itemprop="name"><?php echo $hyperlinkBox->hyperlinkText ?: $hyperlinkBox->hyperlinkHref; ?></strong>
+                            </li>
+                        <?php else: ?>
+                            <li>
+                                <a href="<?php echo $hyperlinkBox->hyperlinkHref; ?>"<?php if($hyperlinkBox->hyperlinkNewWindow): ?> target="_blank" rel="noopener noreferrer"<?php endif ?> title="<?php echo $hyperlinkBox->hyperlinkTitle ?: $hyperlinkBox->hyperlinkText; ?>" itemprop="url">
+                                    <span itemprop="name"><?php echo $hyperlinkBox->hyperlinkText ?: $hyperlinkBox->hyperlinkHref; ?></span>
+                                </a>
+                            </li>
+                        <?php endif ?>
+                    <?php endforeach ?>
+                    </ul>
+                </nav>
+                <?php endif ?>
+            </div>
             <?php endforeach ?>
 
-            <?php foreach ($footerboxes->footerColHyperlink as $hyperlinkBoxes): ?>
-                <section class="box">
-                    <a href="<?php echo $hyperlinkBoxes->hyperlinkHref; ?>"><?php echo $hyperlinkBoxes->hyperlinkText ?: $hyperlinkBoxes->hyperlinkHref; ?></a>
-                </section>
-            <?php endforeach ?>
         </div>
-        <?php endforeach ?>
-
-
-
-
     </div>
 </div>
-</div>
-
-<pre>
-<?php $this->dumpTemplateVars(); ?>
-</pre>

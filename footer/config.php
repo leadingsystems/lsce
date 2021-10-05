@@ -53,17 +53,30 @@ $arr_config = [
                     'elementLabel' => '%s. Box',
                     'inputType' => 'list',
                     'fields' => array(
+                        'hyperlinkHref' => [
+                            'label' => ['Verlinkung'],
+                            'inputType' => 'url',
+                            'eval' => [
+                                'tl_class' => 'w50 clr'
+                            ]
+                        ],
+                        'hyperlinkNewWindow' => [
+                            'label' => $GLOBALS['TL_LANG']['MSC']['target'],
+                            'inputType' => 'checkbox',
+                            'eval' => [
+                                'tl_class' => 'w50 cbx m12'
+                            ]
+                        ],
                         'hyperlinkText' => [
-                            'label' => ['Link-Beschriftung'],
+                            'label' => ['Link-Text'],
                             'inputType' => 'text',
                             'eval' => [
                                 'tl_class' => 'w50 clr'
                             ]
                         ],
-
-                        'hyperlinkHref' => [
-                            'label' => ['Verlinkung'],
-                            'inputType' => 'url',
+                        'hyperlinkTitle' => [
+                            'label' => ['Link-Titel'],
+                            'inputType' => 'text',
                             'eval' => [
                                 'tl_class' => 'w50'
                             ]
