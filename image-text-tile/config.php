@@ -50,7 +50,7 @@ $arr_config = [
                 'tl_class' => 'clr'
             ],
         ],
-        'hyperlinkboxes' => [
+        'hyperlinkBoxes' => [
             'label' => ['Buttons'],
             'elementLabel' => '%s. Button',
             'inputType' => 'list',

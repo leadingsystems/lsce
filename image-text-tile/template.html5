@@ -1,31 +1,22 @@
 <div class="<?php echo $this->class ?> block <?php echo $this->orderImageText; ?>"<?php echo $this->cssID ?>>
-    <div class="kacheln">
-        <div class="kachel">
+    <div class="tile-wrapper">
+        <div class="tile">
+        <?php if($this->textfield): ?>
             <?php echo $this->textfield ?>
+        <?php endif ?>
 
-            <?php foreach ($this->hyperlinkboxes as $box): ?>
-                <button href="<?php echo $box->hyperlinkHref; ?>"><?php echo $box->hyperlinkText ?: $box->hyperlinkHref; ?></button>
+        <?php if($this->hyperlinkBoxes): ?>
+            <?php foreach ($this->hyperlinkBoxes as $hyperlinkBox): ?>
+                <a href="<?php echo $hyperlinkBox->hyperlinkHref; ?>"<?php if($hyperlinkBox->hyperlinkNewWindow): ?> target="_blank" rel="noopener noreferrer"<?php endif ?> title="<?php echo $hyperlinkBox->hyperlinkTitle ?: $hyperlinkBox->hyperlinkText; ?>" itemprop="url">
+                    <span itemprop="name"><?php echo $hyperlinkBox->hyperlinkText ?: $hyperlinkBox->hyperlinkHref; ?></span>
+                </a>
             <?php endforeach ?>
-
-
-            <?php
-            if ($this->hyperlinkText || $this->hyperlinkHref) {
-                ?>
-                <button href="<?php echo $this->hyperlinkHref; ?>"><?php echo $this->hyperlinkText ?: $this->hyperlinkHref; ?></button>
-                <?php
-            }
-            ?>
+        <?php endif ?>
         </div>
-        <div class="kachel">
-            <?php
-            if ($obj_image = $this->arrData['getImageObject']($this->image, $this->size)) {
-                ?>
-                <img src="<?php echo $obj_image->src ?>"
-                     alt="<?php echo $obj_image->alt; ?>"<?php echo $obj_image->imgSize ?>>
-                <?php
-            }
-            ?>
+        <div class="tile">
+        <?php if($image = $this->getImageObject($this->image, $this->imageSize)): ?>
+            <?php $this->insert('picture_default', $image->picture) ?>
+        <?php endif ?>
         </div>
     </div>
-
 </div>

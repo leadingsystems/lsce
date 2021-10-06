@@ -1,7 +1,7 @@
 .ce_rsce_image-text-tile {
   @include ls-contentWrapper;
 
-  div.kacheln {
+  div.tile-wrapper {
     @include display-grid;
     @include grid-template-columns(1fr grid-repeat(11, 0.5rem 1fr));
     @include grid-template-rows(1fr);
@@ -14,7 +14,7 @@
 
   }
 
-  div.kachel {
+  div.tile {
     grid-row-start: 1;
 
     &:nth-child(1) {
@@ -24,9 +24,17 @@
       -webkit-box-shadow: 0px 7px 10px 8px rgba(0, 0, 0, 0.2);
       box-shadow: 0px 7px 10px 8px rgba(0, 0, 0, 0.2);
       z-index: 99;
+
+      a {
+        @include ls_defaultButton;
+      }
     }
 
     &:nth-child(2) {
+
+      img {
+        width: 100%;
+      }
       @media (max-width: 767.98px) {
         height: 100%;
         
@@ -38,9 +46,8 @@
     }
   }
 
-
   &.order-text-image {
-    div.kachel {
+    div.tile {
       &:nth-child(1) {
         grid-column: 1 / 10;
       }
@@ -96,7 +103,7 @@
   }
 
   &.order-image-text {
-    div.kachel {
+    div.tile {
       &:nth-child(1) {
         grid-column: 14 / 24;
       }
@@ -150,7 +157,4 @@
       }
     }
   }
-
-
 }
-
