@@ -1,3 +1,97 @@
 .ce_rsce_hero {
+  position: relative;
 
+  &.imageOption {
+    display: flex;
+    margin: auto;
+    position: relative;
+    min-height: 80rem;
+
+    .image-container {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .text-box-wrapper {
+      display: flex;
+      width: 100%;
+
+      .text-container {
+        @include ls_contentWrapper;
+        margin: auto;
+        padding: 10rem 0;
+        text-align: left;
+        overflow: visible;
+
+        h1,
+        h2,
+        h3 {
+          position: relative;
+          margin: 0;
+          padding: 0;
+        }
+
+        a {
+          @include ls_defaultButton;
+
+          &:hover {
+            color: $ls-color-white;
+            background-color: $ls-color-black;
+          }
+        }
+      }
+    }
+  }
+
+  &:not(.imageOption) {
+    .image-container {
+      margin: 0;
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    .text-box-wrapper {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+
+      .text-container {
+        @include ls_contentWrapper;
+        height: 100%;
+
+        .text-content {
+          width: 100%;
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+
+          h1,
+          h2,
+          h3,
+          h4,
+          p {
+            text-align: left;
+          }
+
+          a {
+            @include ls_defaultButton;
+          }
+        }
+      }
+    }
+  }
 }
