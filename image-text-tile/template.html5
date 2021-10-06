@@ -1,0 +1,31 @@
+<div class="<?php echo $this->class ?> block <?php echo $this->orderImageText; ?>"<?php echo $this->cssID ?>>
+    <div class="kacheln">
+        <div class="kachel">
+            <?php echo $this->textfield ?>
+
+            <?php foreach ($this->hyperlinkboxes as $box): ?>
+                <button href="<?php echo $box->hyperlinkHref; ?>"><?php echo $box->hyperlinkText ?: $box->hyperlinkHref; ?></button>
+            <?php endforeach ?>
+
+
+            <?php
+            if ($this->hyperlinkText || $this->hyperlinkHref) {
+                ?>
+                <button href="<?php echo $this->hyperlinkHref; ?>"><?php echo $this->hyperlinkText ?: $this->hyperlinkHref; ?></button>
+                <?php
+            }
+            ?>
+        </div>
+        <div class="kachel">
+            <?php
+            if ($obj_image = $this->arrData['getImageObject']($this->image, $this->size)) {
+                ?>
+                <img src="<?php echo $obj_image->src ?>"
+                     alt="<?php echo $obj_image->alt; ?>"<?php echo $obj_image->imgSize ?>>
+                <?php
+            }
+            ?>
+        </div>
+    </div>
+
+</div>
