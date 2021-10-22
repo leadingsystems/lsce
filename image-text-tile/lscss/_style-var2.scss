@@ -1,4 +1,9 @@
+$rsc_image-text-tile_breakpoints-to-use: $grid-breakpoints-ls;
+$rsc_image-text-tile_breakpoint-to-single-col-down: 6;
+$rsc_image-text-tile_breakpoint-to-single-col-up: 7;
+
 .ce_rsce_image-text-tile {
+    @include ls-contentWrapper;
 
     .text-container {
         a {
@@ -18,7 +23,7 @@
             padding-left: 0;
             padding-right: 0;
 
-            @media (max-width: 767.98px) {
+            @include media-breakpoint-down($rsc_image-text-tile_breakpoint-to-single-col-down, $rsc_image-text-tile_breakpoints-to-use) {
                 @include make-col(12);
             }
         }
@@ -31,7 +36,7 @@
                 padding: 4rem;
             }
 
-            @media (max-width: 767.98px) {
+            @include media-breakpoint-down($rsc_image-text-tile_breakpoint-to-single-col-down, $rsc_image-text-tile_breakpoints-to-use) {
                 > div {
                     position: relative;
                     top: initial;
@@ -57,15 +62,6 @@
 
             > div:last-child {
                 order: 1;
-            }
-            @media (max-width: 767.98px) {
-                > div:first-child {
-                    order: 2;
-                }
-
-                > div:last-child {
-                    order: 1;
-                }
             }
         }
     }
