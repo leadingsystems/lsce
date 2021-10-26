@@ -8,7 +8,7 @@ $arr_config = [
     'wrapper' => [
         'type' => 'none'
     ],
-    'standardFields' => array('cssID'),
+    'standardFields' => ['cssID'],
     'fields' => [
         'headlineGroup' => [
             'label' => ['Überschrift'],
@@ -25,28 +25,49 @@ $arr_config = [
         ],
 
         'text' => [
-            'inputType' => 'standardField'
-        ],
-
-        'hyperlinkGroup' => [
-            'label' => ['Verlinkung'],
-            'inputType' => 'group'
-        ],
-
-        'hyperlinkText' => [
-            'label' => ['Button-Beschriftung'],
-            'inputType' => 'text',
-            'eval' => [
-                'tl_class' => 'w50'
+            'label' => ['Text'],
+            'inputType' => 'textarea',
+            'eval'  => [
+                'rte'=>'tinyMCE',
+                'style' => 'height: 200px',
+                'tl_class' => 'clr'
             ]
         ],
 
-        'hyperlinkHref' => [
-            'label' => ['Button-Verlinkung'],
-            'inputType' => 'url',
-            'eval' => [
-                'tl_class' => 'w50'
-            ]
+        'hyperlinkBoxes' => [
+            'label' => ['Buttons'],
+            'elementLabel' => '%s. Button',
+            'inputType' => 'list',
+            'fields' => [
+                'hyperlinkHref' => [
+                    'label' => ['Button-Verlinkung'],
+                    'inputType' => 'url',
+                    'eval' => [
+                        'tl_class' => 'w50'
+                    ]
+                ],
+                'hyperlinkNewWindow' => [
+                    'label' => $GLOBALS['TL_LANG']['MSC']['target'],
+                    'inputType' => 'checkbox',
+                    'eval' => [
+                        'tl_class' => 'w50 cbx m12'
+                    ]
+                ],
+                'hyperlinkText' => [
+                    'label' => ['Button-Beschriftung'],
+                    'inputType' => 'text',
+                    'eval' => [
+                        'tl_class' => 'w50 clr'
+                    ]
+                ],
+                'hyperlinkTitle' => [
+                    'label' => ['Button-Titel'],
+                    'inputType' => 'text',
+                    'eval' => [
+                        'tl_class' => 'w50'
+                    ]
+                ],
+            ],
         ],
 
         'imageGroup' => [
@@ -65,7 +86,15 @@ $arr_config = [
         ],
 
         'size' => [
-            'inputType' => 'standardField'
+            'label' => ['Bildbreite und Bildhöhe', ''],
+            'inputType' => 'imageSize',
+            'reference' => &$GLOBALS['TL_LANG']['MSC'],
+            'eval' => [
+                'rgxp' => 'digit',
+                'includeBlankOption' => true,
+                'tl_class' => 'w50'
+            ],
+            'options' => \System::getImageSizes()
         ],
 
         'positionGroup' => [

@@ -2,24 +2,28 @@
     <div>
         <div>
             <div class="image-container">
-                <?php
-                if ($obj_image = $this->arrData['getImageObject']($this->image, $this->size)) {
-                    ?>
-                    <img src="<?php echo $obj_image->src ?>" alt="<?php echo $obj_image->alt; ?>"<?php echo $obj_image->imgSize ?>>
-                    <?php
-                }
-                ?>
+            <?php if($image = $this->getImageObject($this->image, $this->size)): ?>
+                <?php $this->insert('picture_default', $image->picture) ?>
+            <?php endif ?>
             </div>
             <div class="text-container">
-                <?php echo '<' . $this->hl . '>' ?><?php echo $this->headline ?><?php echo '</' . $this->hl . '>' ?>
-                <div class="text"><?php echo $this->text; ?></div>
-                <?php
-                if ($this->hyperlinkText || $this->hyperlinkHref) {
-                    ?>
-                    <a href="<?php echo $this->hyperlinkHref; ?>"><?php echo $this->hyperlinkText ?: $this->hyperlinkHref; ?></a>
-                    <?php
-                }
-                ?>
+            <?php if($this->headline): ?>
+                <<?= $this->hl ?>>
+                <?= $this->headline ?>
+                </<?= $this->hl ?>>
+            <?php endif ?>
+            <?php if($this->text): ?>
+                <div class="text">
+                <?php echo $this->text; ?>
+                </div>
+            <?php endif ?>
+            <?php if($this->hyperlinkBoxes): ?>
+                <?php foreach ($this->hyperlinkBoxes as $hyperlinkBox): ?>
+                    <a href="<?php echo $hyperlinkBox->hyperlinkHref; ?>"<?php if($hyperlinkBox->hyperlinkNewWindow): ?> target="_blank" rel="noopener noreferrer"<?php endif ?> title="<?php echo $hyperlinkBox->hyperlinkTitle ?: $hyperlinkBox->hyperlinkText; ?>" itemprop="url">
+                        <span itemprop="name"><?php echo $hyperlinkBox->hyperlinkText ?: $hyperlinkBox->hyperlinkHref; ?></span>
+                    </a>
+                <?php endforeach ?>
+            <?php endif ?>
             </div>
         </div>
     </div>
