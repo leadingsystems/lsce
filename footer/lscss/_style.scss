@@ -1,3 +1,5 @@
+$rsc_footer_breakpoints-to-use: $grid-breakpoints-ls;
+
 .ce_rsce_footer {
   position: relative;
   margin-top: 0;
@@ -13,72 +15,74 @@
 
       > div {
         @include make-col-ready();
-        @include make-col(3);
-        padding-right: 2rem;
-        @media (max-width: 1199.98px) {
-          @include make-col(6);
-          margin-bottom: 5rem;
-        }
-        @media (max-width: 991.98px) {
-          @include make-col(12);
-        }
 
         img {
-          max-width: 6rem;
-          margin-right: 1rem;
-          margin-bottom: 1rem;
-          float: left;
+          _max-width: 6rem;
+          _margin-right: 1rem;
+          _margin-bottom: 1rem;
         }
+      }
 
-        ul {
-          list-style: none;
+      &.rowNumber-1 {
+        > div {
+          @include make-col(12);
         }
+      }
 
+      &.rowNumber-2 {
+        > div {
+          @include make-col(6);
 
-        /*
-        > div:nth-child(1) {
-          order: 1;
-          @media (max-width: 1199.98px) {
-            order: 1;
-          }
-          @media (max-width: 991.98px) {
-            order: 1;
-          }
-        }
+          @include media-breakpoint-down(6, $rsc_footer_breakpoints-to-use) {
+            @include make-col(12);
+            margin-bottom: 5rem;
 
-        > div:nth-child(2) {
-          order: 2;
-          @media (max-width: 1199.98px) {
-            order: 3;
-          }
-          @media (max-width: 991.98px) {
-            order: 3;
+            &:last-child {
+              margin-bottom: 0;
+            }
           }
         }
+      }
 
-        > div:nth-child(3) {
-          order: 3;
-          @media (max-width: 1199.98px) {
-            order: 4;
-          }
-          @media (max-width: 991.98px) {
-            order: 4;
-          }
-        }
+      &.rowNumber-3 {
+        > div {
+          @include make-col(4);
 
-        > div:nth-child(4) {
-          order: 4;
-          @media (max-width: 1199.98px) {
-            order: 2;
+          @include media-breakpoint-down(9, $rsc_footer_breakpoints-to-use) {
+            @include make-col(6);
+            margin-bottom: 5rem;
+
+            &:last-child {
+              margin-bottom: 0;
+            }
           }
-          @media (max-width: 991.98px) {
-            order: 2;
+          @include media-breakpoint-down(6, $rsc_footer_breakpoints-to-use) {
+            @include make-col(12)
           }
         }
+      }
 
+      &.rowNumber-4 {
+        > div {
+          @include make-col(3);
 
-         */
+          @include media-breakpoint-down(12, $rsc_footer_breakpoints-to-use) {
+            @include make-col(6);
 
+            &:first-child,
+            &:nth-child(2){
+              margin-bottom: 5rem;
+            }
+          }
+          @include media-breakpoint-down(6, $rsc_footer_breakpoints-to-use) {
+            @include make-col(12);
+            margin-bottom: 5rem;
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+          }
+        }
       }
     }
   }

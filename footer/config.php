@@ -24,8 +24,7 @@ $arr_config = [
                     'eval' => [
                         'maxlength' => 200,
                         'tl_class' => 'w50 clr'
-                    ],
-                    'sql' => "varchar(255) NOT NULL default 'a:2:{s:5:\"value\";s:0:\"\";s:4:\"unit\";s:2:\"h2\";}'"
+                    ]
                 ],
                 'footerColText' => [
                     'label' => ['Inhalt'],
