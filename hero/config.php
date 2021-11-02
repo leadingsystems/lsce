@@ -16,13 +16,7 @@ $arr_config = [
         ],
         'headline' => [
             'label' => ['Überschrift'],
-            'inputType' => 'inputUnit',
-            'options' => ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
-            'eval' => [
-                'maxlength' => 200,
-                'tl_class' => 'w50 clr'
-            ],
-            'sql' => "varchar(255) NOT NULL default 'a:2:{s:5:\"value\";s:0:\"\";s:4:\"unit\";s:2:\"h2\";}'"
+            'inputType' => 'standardField'
         ],
         'subheadline' => [
             'label' => ['Unterüberschrift'],
@@ -93,7 +87,7 @@ $arr_config = [
             'options' => \System::getImageSizes()
         ],
         'imageOption' => [
-            'label' => ['Bildoption', 'Umstellen auf object-fit = cover'],
+            'label' => ['Bildoption', 'Hintergrundbild passt sich dem Textcontainer an. (object-fit = cover)'],
             'inputType' => 'checkbox',
             'eval' => [
                 'tl_class' => 'w50 cbx m12'

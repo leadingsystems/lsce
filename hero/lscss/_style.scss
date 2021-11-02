@@ -39,15 +39,6 @@
           margin: 0;
           padding: 0;
         }
-
-        a {
-          @include ls_defaultButton;
-
-          &:hover {
-            color: $ls-color-white;
-            background-color: $ls-color-black;
-          }
-        }
       }
     }
   }
@@ -85,10 +76,6 @@
           h4,
           p {
             text-align: left;
-          }
-
-          a {
-            @include ls_defaultButton;
           }
         }
       }
