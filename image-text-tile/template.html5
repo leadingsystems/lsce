@@ -8,7 +8,7 @@
 
             <?php if($this->hyperlinkBoxes): ?>
                 <?php foreach ($this->hyperlinkBoxes as $hyperlinkBox): ?>
-                    <a href="<?php echo $hyperlinkBox->hyperlinkHref; ?>"<?php if($hyperlinkBox->hyperlinkNewWindow): ?> target="_blank" rel="noopener noreferrer"<?php endif ?> title="<?php echo $hyperlinkBox->hyperlinkTitle ?: $hyperlinkBox->hyperlinkText; ?>" itemprop="url">
+                    <a class="hyperlink_txt button" href="<?php echo $hyperlinkBox->hyperlinkHref; ?>"<?php if($hyperlinkBox->hyperlinkNewWindow): ?> target="_blank" rel="noopener noreferrer"<?php endif ?> title="<?php echo $hyperlinkBox->hyperlinkTitle ?: $hyperlinkBox->hyperlinkText; ?>" itemprop="url">
                         <span itemprop="name"><?php echo $hyperlinkBox->hyperlinkText ?: $hyperlinkBox->hyperlinkHref; ?></span>
                     </a>
                 <?php endforeach ?>

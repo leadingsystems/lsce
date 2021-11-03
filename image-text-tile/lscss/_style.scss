@@ -23,14 +23,7 @@ $rsc_image-text-tile_breakpoints-to-use: $grid-breakpoints-ls;
       padding: 4rem;
       text-align: center;
       background: $ls-color-white;
-      -webkit-box-shadow: 0px 7px 10px 8px rgba(0, 0, 0, 0.2);
-      box-shadow: 0px 7px 10px 8px rgba(0, 0, 0, 0.2);
       z-index: 99;
-
-      a {
-        @include ls_defaultButton;
-        @include ls_dynamicBackground;
-      }
     }
 
     &:nth-child(2) {
