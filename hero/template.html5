@@ -25,8 +25,7 @@
     </div>
 
 <?php
-    $contentHtml = ob_get_contents();
-    ob_end_clean();
+    $contentHtml = ob_get_clean();
 ?>
 
 <div class="<?php echo $this->class ?> block<?php echo $this->imageOption ? ' imageOption': ''; ?>"<?php echo $this->cssID ?>>
