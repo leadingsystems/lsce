@@ -1,6 +1,7 @@
-<div class="<?php echo $this->class ?> block<?php echo $this->imageOption ? ' imageOption': ''; ?>"<?php echo $this->cssID ?>>
+<?php
+    ob_start();
+?>
 
-    <?php if(!$this->imageOption): ?>
     <div class="text-box-wrapper">
         <div class="text-container">
             <div class="text-content">
@@ -15,13 +16,25 @@
             <?php endif ?>
 
             <?php if($this->hyperlinkText || $this->hyperlinkHref): ?>
-                <a class="hyperlink_txt" href="<?php echo $this->hyperlinkHref; ?>"<?php if($this->hyperlinkNewWindow): ?> target="_blank" rel="noopener noreferrer"<?php endif ?> title="<?php echo $this->hyperlinkTitle ?: $this->hyperlinkText; ?>">
+                <a class="hyperlink_txt button" href="<?php echo $this->hyperlinkHref; ?>"<?php if($this->hyperlinkNewWindow): ?> target="_blank" rel="noopener noreferrer"<?php endif ?> title="<?php echo $this->hyperlinkTitle ?: $this->hyperlinkText; ?>">
                     <span><?php echo $this->hyperlinkText ?: $this->hyperlinkHref; ?></span>
                 </a>
             <?php endif ?>
             </div>
         </div>
     </div>
+
+<?php
+    $contentHtml = ob_get_contents();
+    ob_end_clean();
+?>
+
+<div class="<?php echo $this->class ?> block<?php echo $this->imageOption ? ' imageOption': ''; ?>"<?php echo $this->cssID ?>>
+
+    <?php if(!$this->imageOption): ?>
+
+        <?php echo $contentHtml ?>
+
     <?php endif ?>
 
     <div class="image-wrapper">
@@ -33,26 +46,8 @@
     </div>
 
     <?php if($this->imageOption): ?>
-    <div class="text-box-wrapper">
-        <div class="text-container">
-            <div class="text-content">
-            <?php if($this->headline['value']): ?>
-                <<?= $this->headline['unit'] ?>>
-                <?= $this->headline['value'] ?>
-                </<?= $this->headline['unit'] ?>>
-            <?php endif ?>
 
-            <?php if($this->subheadline): ?>
-                <?php echo $this->subheadline ?>
-            <?php endif ?>
+        <?php echo $contentHtml ?>
 
-            <?php if($this->hyperlinkText || $this->hyperlinkHref): ?>
-                <a class="hyperlink_txt" href="<?php echo $this->hyperlinkHref; ?>"<?php if($this->hyperlinkNewWindow): ?> target="_blank" rel="noopener noreferrer"<?php endif ?> title="<?php echo $this->hyperlinkTitle ?: $this->hyperlinkText; ?>">
-                    <span><?php echo $this->hyperlinkText ?: $this->hyperlinkHref; ?></span>
-                </a>
-            <?php endif ?>
-            </div>
-        </div>
-    </div>
     <?php endif ?>
 </div>
