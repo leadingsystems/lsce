@@ -35,11 +35,6 @@ $rsc_contentbox-02_breakpoint-to-single-col-up: 9;
           padding-top: $grid-gutter-width;
           padding-bottom: $grid-gutter-width;
           position: relative;
-
-          a {
-            margin-top: $grid-gutter-width;
-            @include ls_roundButton(4rem, 0rem, 3rem);
-          }
         }
       }
     }
@@ -115,4 +110,3 @@ $rsc_contentbox-02_breakpoint-to-single-col-up: 9;
     }
   }
 }
-
