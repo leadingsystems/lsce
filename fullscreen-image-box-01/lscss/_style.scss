@@ -1,6 +1,3 @@
-$rsce_fullscreen-image-box-01_color-bright: $ls-color-white;
-$rsce_fullscreen-image-box-01_color-dark: $ls-color-black;
-
 .ce_rsce_fullscreen-image-box-01 {
   display: flex;
   margin: auto;
@@ -29,71 +26,8 @@ $rsce_fullscreen-image-box-01_color-dark: $ls-color-black;
     .text-container {
       @include ls_contentWrapper;
       margin: auto;
-      color: $rsce_fullscreen-image-box-01_color-bright;
-      border: 0.5rem solid $rsce_fullscreen-image-box-01_color-bright;
-      background-color: rgba($rsce_fullscreen-image-box-01_color-dark, 50%);
       padding: 10rem;
-      text-align: center;
       overflow: visible;
-      text-shadow: 0 0 0.5rem rgba($rsce_fullscreen-image-box-01_color-dark, 90%);
-      font-size: $ls-font-size-h3;
-
-      h1,
-      h2,
-      h3 {
-        font-size: $ls-font-size-h1;
-        padding-bottom: $grid-gutter-width-small;
-        margin-bottom: $grid-gutter-width-small;
-        position: relative;
-
-        &::after {
-          content: "";
-          position: absolute;
-          width: 30%;
-          border-bottom: 0.1rem solid $rsce_fullscreen-image-box-01_color-bright;
-          left: 50%;
-          bottom: 0;
-          transform: translateX(-50%);
-        }
-      }
-
-      a {
-        @include ls_roundButton(4rem, 0rem, 3rem);
-        border-color: $rsce_fullscreen-image-box-01_color-bright;
-        margin-top: $grid-gutter-width;
-        &:hover {
-          color: $rsce_fullscreen-image-box-01_color-dark;
-          background-color: $rsce_fullscreen-image-box-01_color-bright;
-          text-shadow: none;
-        }
-      }
-    }
-  }
-
-  &.text-dark {
-    .text-box-wrapper {
-      .text-container {
-        color: $rsce_fullscreen-image-box-01_color-dark;
-        border-color: $rsce_fullscreen-image-box-01_color-dark;
-        background-color: rgba($rsce_fullscreen-image-box-01_color-bright, 50%);
-        text-shadow: 0 0 0.5rem rgba($rsce_fullscreen-image-box-01_color-bright, 90%);
-
-        h1,
-        h2,
-        h3 {
-          &::after {
-            border-bottom-color: $rsce_fullscreen-image-box-01_color-dark;
-          }
-        }
-
-        a {
-          border-color: $rsce_fullscreen-image-box-01_color-dark;
-          &:hover {
-            color: $rsce_fullscreen-image-box-01_color-bright;
-            background-color: $rsce_fullscreen-image-box-01_color-dark;
-          }
-        }
-      }
     }
   }
 }
