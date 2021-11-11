@@ -23,13 +23,13 @@ $rsc_footer_breakpoints-to-use: $grid-breakpoints-ls;
         }
       }
 
-      &.rowNumber-1 {
+      &.colNumber-1 {
         > div {
           @include make-col(12);
         }
       }
 
-      &.rowNumber-2 {
+      &.colNumber-2 {
         > div {
           @include make-col(6);
 
@@ -44,7 +44,7 @@ $rsc_footer_breakpoints-to-use: $grid-breakpoints-ls;
         }
       }
 
-      &.rowNumber-3 {
+      &.colNumber-3 {
         > div {
           @include make-col(4);
 
@@ -62,7 +62,7 @@ $rsc_footer_breakpoints-to-use: $grid-breakpoints-ls;
         }
       }
 
-      &.rowNumber-4 {
+      &.colNumber-4 {
         > div {
           @include make-col(3);
 
