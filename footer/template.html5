@@ -1,68 +1,68 @@
 <div class="<?php echo $this->class; ?> block"<?php echo $this->cssID; ?>>
     <div>
-        <div class="colNumber-<?php echo count($this->boxes); ?>">
+        <div class="colNumber-<?php echo count($this->boxes); ?> <?php echo $this->layout; ?>">
 
             <?php foreach ($this->boxes as $footerbox): ?>
             <div>
-            <div <?php echo $footerbox->footerColImage ? 'class="ce_gallery"': ''; ?>>
+                <div <?php echo $footerbox->footerColImage ? 'class="ce_gallery"': ''; ?>>
 
-                <?php if($footerbox->footerColHeadlineUnit['value']): ?>
-                    <<?php echo $footerbox->footerColHeadlineUnit['unit']; ?>>
-                    <?php echo $footerbox->footerColHeadlineUnit['value']; ?>
-                    </<?php echo $footerbox->footerColHeadlineUnit['unit']; ?>>
-                <?php endif; ?>
+                    <?php if($footerbox->footerColHeadlineUnit['value']): ?>
+                        <<?php echo $footerbox->footerColHeadlineUnit['unit']; ?>>
+                        <?php echo $footerbox->footerColHeadlineUnit['value']; ?>
+                        </<?php echo $footerbox->footerColHeadlineUnit['unit']; ?>>
+                    <?php endif; ?>
 
-                <?php if($footerbox->footerColText): ?>
-                    <?php echo $footerbox->footerColText; ?>
-                <?php endif; ?>
+                    <?php if($footerbox->footerColText): ?>
+                        <?php echo $footerbox->footerColText; ?>
+                    <?php endif; ?>
 
-                <?php if($footerbox->footerColImage): ?>
-                <ul itemscope itemtype="http://schema.org/ImageGallery">
-                    <?php foreach ($footerbox->footerColImage as $imageId): ?>
-                    <li>
-                        <figure class="image_container">
-                        <?php if ($image = $this->getImageObject($imageId, $footerbox->footerColImageSize)): ?>
-                            <?php if ($image->imageUrl): ?>
-                            <a href="<?php echo $image->imageUrl; ?>"<?php if ($image->imageTitle): ?> title="<?php echo $image->imageTitle; ?>"<?php endif; ?>>
-                            <?php endif; ?>
+                    <?php if($footerbox->footerColImage): ?>
+                    <ul itemscope itemtype="http://schema.org/ImageGallery">
+                        <?php foreach ($footerbox->footerColImage as $imageId): ?>
+                        <li>
+                            <figure class="image_container">
+                            <?php if ($image = $this->getImageObject($imageId, $footerbox->footerColImageSize)): ?>
+                                <?php if ($image->imageUrl): ?>
+                                <a href="<?php echo $image->imageUrl; ?>"<?php if ($image->imageTitle): ?> title="<?php echo $image->imageTitle; ?>"<?php endif; ?>>
+                                <?php endif; ?>
 
-                            <?php $this->insert('picture_default', $image->picture); ?>
+                                <?php $this->insert('picture_default', $image->picture); ?>
 
-                            <?php if ($image->imageUrl): ?>
-                            </a>
-                            <?php endif; ?>
-
-                            <?php if ($image->caption): ?>
-                            <figcaption class="caption"><?php echo $image->caption; ?></figcaption>
-                            <?php endif; ?>
-                        <?php endif; ?>
-                        </figure>
-                    </li>
-                    <?php endforeach; ?>
-                </ul>
-                <?php endif; ?>
-
-                <?php if($footerbox->footerColHyperlink): ?>
-                <nav itemscope itemtype="http://schema.org/SiteNavigationElement">
-                    <ul>
-                    <?php foreach ($footerbox->footerColHyperlink as $hyperlinkBox): ?>
-                        <?php $pageId = '/::'.$this->replaceInsertTags("{{page::id}}").'}}/'; ?>
-                        <?php if(preg_match($pageId, $hyperlinkBox->hyperlinkHref)): ?>
-                            <li class="active">
-                                <strong class="active" itemprop="name"><?php echo $hyperlinkBox->hyperlinkText ?: $hyperlinkBox->hyperlinkHref; ?></strong>
-                            </li>
-                        <?php else: ?>
-                            <li>
-                                <a href="<?php echo $hyperlinkBox->hyperlinkHref; ?>"<?php if($hyperlinkBox->hyperlinkNewWindow): ?> target="_blank" rel="noopener noreferrer"<?php endif; ?> title="<?php echo $hyperlinkBox->hyperlinkTitle ?: $hyperlinkBox->hyperlinkText; ?>" itemprop="url">
-                                    <span itemprop="name"><?php echo $hyperlinkBox->hyperlinkText ?: $hyperlinkBox->hyperlinkHref; ?></span>
+                                <?php if ($image->imageUrl): ?>
                                 </a>
-                            </li>
-                        <?php endif; ?>
-                    <?php endforeach; ?>
+                                <?php endif; ?>
+
+                                <?php if ($image->caption): ?>
+                                <figcaption class="caption"><?php echo $image->caption; ?></figcaption>
+                                <?php endif; ?>
+                            <?php endif; ?>
+                            </figure>
+                        </li>
+                        <?php endforeach; ?>
                     </ul>
-                </nav>
-                <?php endif; ?>
-            </div>
+                    <?php endif; ?>
+
+                    <?php if($footerbox->footerColHyperlink): ?>
+                    <nav itemscope itemtype="http://schema.org/SiteNavigationElement">
+                        <ul>
+                        <?php foreach ($footerbox->footerColHyperlink as $hyperlinkBox): ?>
+                            <?php $pageId = '/::'.$this->replaceInsertTags("{{page::id}}").'}}/'; ?>
+                            <?php if(preg_match($pageId, $hyperlinkBox->hyperlinkHref)): ?>
+                                <li class="active">
+                                    <strong class="active" itemprop="name"><?php echo $hyperlinkBox->hyperlinkText ?: $hyperlinkBox->hyperlinkHref; ?></strong>
+                                </li>
+                            <?php else: ?>
+                                <li>
+                                    <a href="<?php echo $hyperlinkBox->hyperlinkHref; ?>"<?php if($hyperlinkBox->hyperlinkNewWindow): ?> target="_blank" rel="noopener noreferrer"<?php endif; ?> title="<?php echo $hyperlinkBox->hyperlinkTitle ?: $hyperlinkBox->hyperlinkText; ?>" itemprop="url">
+                                        <span itemprop="name"><?php echo $hyperlinkBox->hyperlinkText ?: $hyperlinkBox->hyperlinkHref; ?></span>
+                                    </a>
+                                </li>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                        </ul>
+                    </nav>
+                    <?php endif; ?>
+                </div>
             </div>
             <?php endforeach; ?>
 

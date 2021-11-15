@@ -10,6 +10,21 @@ $arr_config = [
     ],
     'standardFields' => ['cssID'],
     'fields' => [
+        'layoutGroup' => [
+            'label' => ['Layouteinstellung'],
+            'inputType' => 'group'
+        ],
+        'layout' => [
+            'label' => ['Ausrichtung der Spalten'],
+            'inputType' => 'select',
+            'options' => [
+                'flex-layout-fix' => 'Spalten mit fester Breite ausrichten',
+                'flex-layout-sb' => 'Spalten mit gleichmäßigem Zwischenraum ausrichten'
+            ],
+            'eval' => [
+                'tl_class' => 'w50'
+            ]
+        ],
         'boxes' => [
             'label' => ['Textspalten'],
             'elementLabel' => '%s. Spalte',
