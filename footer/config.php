@@ -113,4 +113,3 @@ $arr_config = [
         ],
     ],
 ];
-return $arr_config;
