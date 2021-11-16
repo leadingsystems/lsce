@@ -1,5 +1,5 @@
-$rsc_image-text-tile_breakpoints-to-use: $grid-breakpoints-ls;
-$rsc_image-text-tile_breakpoint-to-single-col-down: 7;
+$rsc_image-text-tile_breakpoints-to-use: $grid-breakpoints-ls !default;
+$rsc_image-text-tile_breakpoint-to-single-col-down: 7 !default;
 
 .ce_rsce_image-text-tile {
   @include ls-contentWrapper;
@@ -35,7 +35,6 @@ $rsc_image-text-tile_breakpoint-to-single-col-down: 7;
     &:nth-child(2) {
       padding: 4rem;
       align-self: center;
-      text-align: center;
       background-color: $ls-color-light-grey;
 
       @include media-breakpoint-down($rsc_image-text-tile_breakpoint-to-single-col-down, $rsc_image-text-tile_breakpoints-to-use) {
