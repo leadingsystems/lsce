@@ -29,16 +29,7 @@
         @include ls_contentWrapper;
         margin: auto;
         padding: 10rem 0;
-        text-align: left;
         overflow: visible;
-
-        h1,
-        h2,
-        h3 {
-          position: relative;
-          margin: 0;
-          padding: 0;
-        }
       }
     }
   }
@@ -69,14 +60,6 @@
           position: absolute;
           top: 50%;
           transform: translateY(-50%);
-
-          h1,
-          h2,
-          h3,
-          h4,
-          p {
-            text-align: left;
-          }
         }
       }
     }
