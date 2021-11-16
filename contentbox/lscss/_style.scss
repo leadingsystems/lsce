@@ -1,8 +1,8 @@
-$rsc_contentbox-02_breakpoints-to-use: $grid-breakpoints-ls;
-$rsc_contentbox-02_breakpoint-to-single-col-down: 8;
-$rsc_contentbox-02_breakpoint-to-single-col-up: 9;
+$rsc_contentbox_breakpoints-to-use: $grid-breakpoints-ls !default;
+$rsc_contentbox_breakpoint-to-single-col-down: 8 !default;
+$rsc_contentbox_breakpoint-to-single-col-up: 9 !default;
 
-.ce_rsce_contentbox-02 {
+.ce_rsce_contentbox {
   background-color: $ls-color-light-grey;
   position: relative;
 
@@ -16,13 +16,13 @@ $rsc_contentbox-02_breakpoint-to-single-col-up: 9;
         @include make-col-ready();
         @include make-col(6);
 
-        @include media-breakpoint-down($rsc_contentbox-02_breakpoint-to-single-col-down, $rsc_contentbox-02_breakpoints-to-use) {
+        @include media-breakpoint-down($rsc_contentbox_breakpoint-to-single-col-down, $rsc_contentbox_breakpoints-to-use) {
           @include make-col(12);
         }
 
         &.image-container {
           img {
-            @include media-breakpoint-up($rsc_contentbox-02_breakpoint-to-single-col-up, $rsc_contentbox-02_breakpoints-to-use) {
+            @include media-breakpoint-up($rsc_contentbox_breakpoint-to-single-col-up, $rsc_contentbox_breakpoints-to-use) {
               height: 1rem;
             }
             min-height: 100%;
@@ -40,7 +40,7 @@ $rsc_contentbox-02_breakpoint-to-single-col-up: 9;
     }
   }
 
-  @include media-breakpoint-up($rsc_contentbox-02_breakpoint-to-single-col-up, $rsc_contentbox-02_breakpoints-to-use) {
+  @include media-breakpoint-up($rsc_contentbox_breakpoint-to-single-col-up, $rsc_contentbox_breakpoints-to-use) {
     &.image-horizontally-right {
       > div {
         > div {
@@ -58,7 +58,7 @@ $rsc_contentbox-02_breakpoint-to-single-col-up: 9;
     }
   }
 
-  @include media-breakpoint-down($rsc_contentbox-02_breakpoint-to-single-col-down, $rsc_contentbox-02_breakpoints-to-use) {
+  @include media-breakpoint-down($rsc_contentbox_breakpoint-to-single-col-down, $rsc_contentbox_breakpoints-to-use) {
     &.image-vertically-bottom {
       > div {
         > div {
@@ -76,7 +76,7 @@ $rsc_contentbox-02_breakpoint-to-single-col-up: 9;
     }
   }
 
-  @include media-breakpoint-up($rsc_contentbox-02_breakpoint-to-single-col-up, $rsc_contentbox-02_breakpoints-to-use) {
+  @include media-breakpoint-up($rsc_contentbox_breakpoint-to-single-col-up, $rsc_contentbox_breakpoints-to-use) {
     &.image-to-middle {
       > div {
         > div {

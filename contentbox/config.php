@@ -1,7 +1,7 @@
 <?php
 
 $arr_config = [
-    'label' => ['Contentbox 02'],
+    'label' => ['Contentbox'],
     'types' => ['content', 'module'],
     'contentCategory' => 'LS',
     'moduleCategory' => 'miscellaneous',
