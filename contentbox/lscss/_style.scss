@@ -3,12 +3,9 @@ $rsc_contentbox_breakpoint-to-single-col-down: 8 !default;
 $rsc_contentbox_breakpoint-to-single-col-up: 9 !default;
 
 .ce_rsce_contentbox {
-  background-color: $ls-color-light-grey;
   position: relative;
 
   > div {
-    @include ls_contentWrapper;
-
     > div {
       @include make-row();
 
