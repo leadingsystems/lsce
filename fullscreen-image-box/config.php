@@ -1,7 +1,7 @@
 <?php
 
 $arr_config = [
-    'label' => ['Fullscreen Image Box 01'],
+    'label' => ['Fullscreen Image Box'],
     'types' => ['content', 'module'],
     'contentCategory' => 'LS',
     'moduleCategory' => 'miscellaneous',
