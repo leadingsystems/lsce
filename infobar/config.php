@@ -29,7 +29,7 @@ $arr_config = [
             'inputType' => 'select',
             'options' => [
                 'normal' => 'Normal',
-                'invert' => 'Invertriert'
+                'invert' => 'Invertiert'
             ],
             'eval' => [
                 'tl_class' => 'w50'

@@ -1,8 +1,16 @@
-$rsc_infobox_breakpoints-to-use: $grid-breakpoints-ls;
-$rsc_infobox_breakpoint-to-single-col-down: 8;
-$rsc_infobox_breakpoint-to-single-col-up: 9;
+$rsc_infobar_breakpoints-to-use: $grid-breakpoints-ls !default;
+$rsc_infobar_breakpoint-to-single-col-down: 7 !default;
 
 .ce_rsce_infobar {
+  .inside {
+    @include make-row();
+    justify-content: space-around;
+    align-items: baseline;
+    text-align: center;
 
+    @include media-breakpoint-down($rsc_infobar_breakpoint-to-single-col-down, $rsc_infobar_breakpoints-to-use) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
 }
-
