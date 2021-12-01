@@ -6,7 +6,6 @@ $rsce_footer_breakpoint-large: 12 !default;
 .ce_rsce_footer {
   position: relative;
   margin-top: 0;
-  background: $ls-color-dark-grey;
 
   > div {
     @include ls_contentWrapper;
@@ -184,7 +183,6 @@ $rsce_footer_breakpoint-large: 12 !default;
             position: relative;
             padding-right: 3rem;
             padding-left: 3rem;
-            //@include make-col(3);
 
             @include media-breakpoint-down($rsce_footer_breakpoint-large, $rsce_footer_breakpoints-to-use) {
               @include make-col(6);
