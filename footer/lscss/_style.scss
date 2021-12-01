@@ -1,7 +1,7 @@
-$rsc_footer_breakpoints-to-use: $grid-breakpoints-ls !default;
-$rsc_footer_breakpoint-small: 6 !default;
-$rsc_footer_breakpoint-middle: 9 !default;
-$rsc_footer_breakpoint-large: 12 !default;
+$rsce_footer_breakpoints-to-use: $grid-breakpoints-ls !default;
+$rsce_footer_breakpoint-small: 6 !default;
+$rsce_footer_breakpoint-middle: 9 !default;
+$rsce_footer_breakpoint-large: 12 !default;
 
 .ce_rsce_footer {
   position: relative;
@@ -31,7 +31,7 @@ $rsc_footer_breakpoint-large: 12 !default;
           > div {
             @include make-col(6);
 
-            @include media-breakpoint-down($rsc_footer_breakpoint-small, $rsc_footer_breakpoints-to-use) {
+            @include media-breakpoint-down($rsce_footer_breakpoint-small, $rsce_footer_breakpoints-to-use) {
               @include make-col(12);
               margin-bottom: 5rem;
 
@@ -46,7 +46,7 @@ $rsc_footer_breakpoint-large: 12 !default;
           > div {
             @include make-col(4);
 
-            @include media-breakpoint-down($rsc_footer_breakpoint-middle, $rsc_footer_breakpoints-to-use) {
+            @include media-breakpoint-down($rsce_footer_breakpoint-middle, $rsce_footer_breakpoints-to-use) {
               @include make-col(6);
               margin-bottom: 5rem;
 
@@ -54,7 +54,7 @@ $rsc_footer_breakpoint-large: 12 !default;
                 margin-bottom: 0;
               }
             }
-            @include media-breakpoint-down($rsc_footer_breakpoint-small, $rsc_footer_breakpoints-to-use) {
+            @include media-breakpoint-down($rsce_footer_breakpoint-small, $rsce_footer_breakpoints-to-use) {
               @include make-col(12)
             }
           }
@@ -64,7 +64,7 @@ $rsc_footer_breakpoint-large: 12 !default;
           > div {
             @include make-col(3);
 
-            @include media-breakpoint-down($rsc_footer_breakpoint-large, $rsc_footer_breakpoints-to-use) {
+            @include media-breakpoint-down($rsce_footer_breakpoint-large, $rsce_footer_breakpoints-to-use) {
               @include make-col(6);
 
               &:first-child,
@@ -72,7 +72,7 @@ $rsc_footer_breakpoint-large: 12 !default;
                 margin-bottom: 5rem;
               }
             }
-            @include media-breakpoint-down($rsc_footer_breakpoint-small, $rsc_footer_breakpoints-to-use) {
+            @include media-breakpoint-down($rsce_footer_breakpoint-small, $rsce_footer_breakpoints-to-use) {
               @include make-col(12);
               margin-bottom: 5rem;
 
@@ -113,7 +113,7 @@ $rsc_footer_breakpoint-large: 12 !default;
               }
             }
 
-            @include media-breakpoint-down($rsc_footer_breakpoint-small, $rsc_footer_breakpoints-to-use) {
+            @include media-breakpoint-down($rsce_footer_breakpoint-small, $rsce_footer_breakpoints-to-use) {
               @include make-col(12);
               margin-bottom: 5rem;
 
@@ -129,7 +129,6 @@ $rsc_footer_breakpoint-large: 12 !default;
         }
 
         &.colNumber-3 {
-          _foo: bar;
 
           > div {
             max-width: 100% / 3;
@@ -137,7 +136,7 @@ $rsc_footer_breakpoint-large: 12 !default;
             padding-right: 3rem;
             padding-left: 3rem;
 
-            @include media-breakpoint-down($rsc_footer_breakpoint-middle, $rsc_footer_breakpoints-to-use) {
+            @include media-breakpoint-down($rsce_footer_breakpoint-middle, $rsce_footer_breakpoints-to-use) {
               @include make-col(6);
               margin-bottom: 5rem;
 
@@ -160,7 +159,7 @@ $rsc_footer_breakpoint-large: 12 !default;
               }
             }
 
-            @include media-breakpoint-down($rsc_footer_breakpoint-small, $rsc_footer_breakpoints-to-use) {
+            @include media-breakpoint-down($rsce_footer_breakpoint-small, $rsce_footer_breakpoints-to-use) {
               @include make-col(12);
 
               &:nth-child(2) {
@@ -187,7 +186,7 @@ $rsc_footer_breakpoint-large: 12 !default;
             padding-left: 3rem;
             //@include make-col(3);
 
-            @include media-breakpoint-down($rsc_footer_breakpoint-large, $rsc_footer_breakpoints-to-use) {
+            @include media-breakpoint-down($rsce_footer_breakpoint-large, $rsce_footer_breakpoints-to-use) {
               @include make-col(6);
 
               &:first-child,
@@ -203,7 +202,7 @@ $rsc_footer_breakpoint-large: 12 !default;
                 }
               }
             }
-            @include media-breakpoint-down($rsc_footer_breakpoint-small, $rsc_footer_breakpoints-to-use) {
+            @include media-breakpoint-down($rsce_footer_breakpoint-small, $rsce_footer_breakpoints-to-use) {
               @include make-col(12);
               margin-bottom: 5rem;
 
