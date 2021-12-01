@@ -1,42 +1,42 @@
-$rsc_image-text-tile_breakpoints-to-use: $grid-breakpoints-ls !default;
-$rsc_image-text-tile_breakpoint-to-single-col-down: 7 !default;
+$rsce_image-text-tile_breakpoints-to-use: $grid-breakpoints-ls !default;
+$rsce_image-text-tile_breakpoint-to-single-col-down: 7 !default;
 /*
  Adjust: grid row and column */
-$rsc_image-text-tile_grid-repeat: 12 !default;
+$rsce_image-text-tile_grid-repeat: 12 !default;
 /*
  Adjust: image- & text-tile behavior on big screen/ multi column
  tile-order: text-image */
-$rsc_image-text-tile_grid-column-order-text-image_image: 5 / -1 !default;
-$rsc_image-text-tile_grid-column-order-text-image_text: 1 / 6 !default;
+$rsce_image-text-tile_grid-column-order-text-image_image: 5 / -1 !default;
+$rsce_image-text-tile_grid-column-order-text-image_text: 1 / 6 !default;
 /* tile-order: image-text */
-$rsc_image-text-tile_grid-column-order-image-text_image: 1 / 9 !default;
-$rsc_image-text-tile_grid-column-order-image-text_text: 8 / -1 !default;
+$rsce_image-text-tile_grid-column-order-image-text_image: 1 / 9 !default;
+$rsce_image-text-tile_grid-column-order-image-text_text: 8 / -1 !default;
 /*
  Adjust: image- & text-tile behavior on small screen/ single column */
-$rsc_image-text-tile_grid-row-single-col-image: 1 / 9 !default;
-$rsc_image-text-tile_grid-row-single-col-text: 8 / -1 !default;
+$rsce_image-text-tile_grid-row-single-col-image: 1 / 9 !default;
+$rsce_image-text-tile_grid-row-single-col-text: 8 / -1 !default;
 
 
 .ce_rsce_image-text-tile {
 
   .tile-wrapper {
     @include display-grid;
-    @include grid-template-columns(grid-repeat($rsc_image-text-tile_grid-repeat, 1fr));
+    @include grid-template-columns(grid-repeat($rsce_image-text-tile_grid-repeat, 1fr));
 
-    @include media-breakpoint-down($rsc_image-text-tile_breakpoint-to-single-col-down, $rsc_image-text-tile_breakpoints-to-use) {
+    @include media-breakpoint-down($rsce_image-text-tile_breakpoint-to-single-col-down, $rsce_image-text-tile_breakpoints-to-use) {
       @include grid-template-columns(1fr);
-      @include grid-template-rows(grid-repeat($rsc_image-text-tile_grid-repeat, 1fr));
+      @include grid-template-rows(grid-repeat($rsce_image-text-tile_grid-repeat, 1fr));
     }
   }
 
   &.order-text-image {
     .tile {
       &:nth-child(1) {
-        grid-column: $rsc_image-text-tile_grid-column-order-text-image_image;
+        grid-column: $rsce_image-text-tile_grid-column-order-text-image_image;
       }
 
       &:nth-child(2) {
-        grid-column: $rsc_image-text-tile_grid-column-order-text-image_text;
+        grid-column: $rsce_image-text-tile_grid-column-order-text-image_text;
       }
     }
   }
@@ -44,11 +44,11 @@ $rsc_image-text-tile_grid-row-single-col-text: 8 / -1 !default;
   &.order-image-text {
     .tile {
       &:nth-child(1) {
-        grid-column: $rsc_image-text-tile_grid-column-order-image-text_image;
+        grid-column: $rsce_image-text-tile_grid-column-order-image-text_image;
       }
 
       &:nth-child(2) {
-        grid-column: $rsc_image-text-tile_grid-column-order-image-text_text;
+        grid-column: $rsce_image-text-tile_grid-column-order-image-text_text;
       }
     }
   }
@@ -66,16 +66,16 @@ $rsc_image-text-tile_grid-row-single-col-text: 8 / -1 !default;
         object-fit: cover;
       }
 
-      @include media-breakpoint-down($rsc_image-text-tile_breakpoint-to-single-col-down, $rsc_image-text-tile_breakpoints-to-use) {
-        grid-row: $rsc_image-text-tile_grid-row-single-col-image;
+      @include media-breakpoint-down($rsce_image-text-tile_breakpoint-to-single-col-down, $rsce_image-text-tile_breakpoints-to-use) {
+        grid-row: $rsce_image-text-tile_grid-row-single-col-image;
       }
     }
 
     &:nth-child(2) {
       align-self: center;
 
-      @include media-breakpoint-down($rsc_image-text-tile_breakpoint-to-single-col-down, $rsc_image-text-tile_breakpoints-to-use) {
-        grid-row: $rsc_image-text-tile_grid-row-single-col-text;
+      @include media-breakpoint-down($rsce_image-text-tile_breakpoint-to-single-col-down, $rsce_image-text-tile_breakpoints-to-use) {
+        grid-row: $rsce_image-text-tile_grid-row-single-col-text;
         margin: 0 15%;
         align-self: unset;
         @include display-grid;
@@ -86,7 +86,7 @@ $rsc_image-text-tile_grid-row-single-col-text: 8 / -1 !default;
       }
     }
 
-    @include media-breakpoint-down($rsc_image-text-tile_breakpoint-to-single-col-down, $rsc_image-text-tile_breakpoints-to-use) {
+    @include media-breakpoint-down($rsce_image-text-tile_breakpoint-to-single-col-down, $rsce_image-text-tile_breakpoints-to-use) {
       grid-column: 1 / 2 !important;
     }
   }
