@@ -1,0 +1,2 @@
+<?php
+include('./assets/lsce/picture-art-direction/template.html5');
