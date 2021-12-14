@@ -83,6 +83,13 @@ $arr_config = [
                         'tl_class' => 'w50'
                     ]
                 ],
+                'hyperlinkClass' => [
+                    'label' => ['Button-Klasse'],
+                    'inputType' => 'text',
+                    'eval' => [
+                        'tl_class' => 'w50 clr'
+                    ]
+                ],
             ],
         ],
     ]

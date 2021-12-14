@@ -14,11 +14,7 @@
                 <?php endif; ?>
 
                 <?php if($this->hyperlinkBoxes): ?>
-                    <?php foreach ($this->hyperlinkBoxes as $hyperlinkBox): ?>
-                        <a class="hyperlink_txt" href="<?php echo $hyperlinkBox->hyperlinkHref; ?>"<?php if($hyperlinkBox->hyperlinkNewWindow): ?> target="_blank" rel="noopener noreferrer"<?php endif; ?> title="<?php echo $hyperlinkBox->hyperlinkTitle ?: $hyperlinkBox->hyperlinkText; ?>" itemprop="url">
-                            <span itemprop="name"><?php echo $hyperlinkBox->hyperlinkText ?: $hyperlinkBox->hyperlinkHref; ?></span>
-                        </a>
-                    <?php endforeach; ?>
+                    <?php foreach ($this->hyperlinkBoxes as $hyperlinkBox): ?><a class="<?php echo $hyperlinkBox->hyperlinkClass ? $hyperlinkBox->hyperlinkClass.' ' : ''; ?>hyperlink_txt" href="<?php echo $hyperlinkBox->hyperlinkHref; ?>"<?php if($hyperlinkBox->hyperlinkNewWindow): ?> target="_blank" rel="noopener noreferrer"<?php endif; ?> title="<?php echo $hyperlinkBox->hyperlinkTitle ?: $hyperlinkBox->hyperlinkText; ?>" itemprop="url"><span itemprop="name"><?php echo $hyperlinkBox->hyperlinkText ?: $hyperlinkBox->hyperlinkHref; ?></span></a><?php endforeach; ?>
                 <?php endif; ?>
             </div>
         </div>
