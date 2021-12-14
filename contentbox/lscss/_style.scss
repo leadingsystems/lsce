@@ -1,14 +1,11 @@
-$rsc_contentbox-02_breakpoints-to-use: $grid-breakpoints-ls;
-$rsc_contentbox-02_breakpoint-to-single-col-down: 8;
-$rsc_contentbox-02_breakpoint-to-single-col-up: 9;
+$rsce_contentbox_breakpoints-to-use: $grid-breakpoints-ls !default;
+$rsce_contentbox_breakpoint-to-single-col-down: 8 !default;
+$rsce_contentbox_breakpoint-to-single-col-up: 9 !default;
 
-.ce_rsce_contentbox-02 {
-  background-color: $ls-color-light-grey;
+.ce_rsce_contentbox {
   position: relative;
 
   > div {
-    @include ls_contentWrapper;
-
     > div {
       @include make-row();
 
@@ -16,13 +13,13 @@ $rsc_contentbox-02_breakpoint-to-single-col-up: 9;
         @include make-col-ready();
         @include make-col(6);
 
-        @include media-breakpoint-down($rsc_contentbox-02_breakpoint-to-single-col-down, $rsc_contentbox-02_breakpoints-to-use) {
+        @include media-breakpoint-down($rsce_contentbox_breakpoint-to-single-col-down, $rsce_contentbox_breakpoints-to-use) {
           @include make-col(12);
         }
 
         &.image-container {
           img {
-            @include media-breakpoint-up($rsc_contentbox-02_breakpoint-to-single-col-up, $rsc_contentbox-02_breakpoints-to-use) {
+            @include media-breakpoint-up($rsce_contentbox_breakpoint-to-single-col-up, $rsce_contentbox_breakpoints-to-use) {
               height: 1rem;
             }
             min-height: 100%;
@@ -32,20 +29,13 @@ $rsc_contentbox-02_breakpoint-to-single-col-up: 9;
         }
 
         &.text-container {
-          padding-top: $grid-gutter-width;
-          padding-bottom: $grid-gutter-width;
           position: relative;
-
-          a {
-            margin-top: $grid-gutter-width;
-            @include ls_roundButton(4rem, 0rem, 3rem);
-          }
         }
       }
     }
   }
 
-  @include media-breakpoint-up($rsc_contentbox-02_breakpoint-to-single-col-up, $rsc_contentbox-02_breakpoints-to-use) {
+  @include media-breakpoint-up($rsce_contentbox_breakpoint-to-single-col-up, $rsce_contentbox_breakpoints-to-use) {
     &.image-horizontally-right {
       > div {
         > div {
@@ -63,7 +53,7 @@ $rsc_contentbox-02_breakpoint-to-single-col-up: 9;
     }
   }
 
-  @include media-breakpoint-down($rsc_contentbox-02_breakpoint-to-single-col-down, $rsc_contentbox-02_breakpoints-to-use) {
+  @include media-breakpoint-down($rsce_contentbox_breakpoint-to-single-col-down, $rsce_contentbox_breakpoints-to-use) {
     &.image-vertically-bottom {
       > div {
         > div {
@@ -81,7 +71,7 @@ $rsc_contentbox-02_breakpoint-to-single-col-up: 9;
     }
   }
 
-  @include media-breakpoint-up($rsc_contentbox-02_breakpoint-to-single-col-up, $rsc_contentbox-02_breakpoints-to-use) {
+  @include media-breakpoint-up($rsce_contentbox_breakpoint-to-single-col-up, $rsce_contentbox_breakpoints-to-use) {
     &.image-to-middle {
       > div {
         > div {
@@ -115,4 +105,3 @@ $rsc_contentbox-02_breakpoint-to-single-col-up: 9;
     }
   }
 }
-
