@@ -1,14 +1,14 @@
 <?php
 
 $arr_config = [
-    'label' => ['Fullscreen Image Box 01'],
+    'label' => ['Fullscreen Image Box'],
     'types' => ['content', 'module'],
     'contentCategory' => 'LS',
     'moduleCategory' => 'miscellaneous',
     'wrapper' => [
         'type' => 'none'
     ],
-    'standardFields' => array('cssID'),
+    'standardFields' => ['cssID'],
     'fields' => [
         'headlineGroup' => [
             'label' => ['Überschrift'],
@@ -21,7 +21,8 @@ $arr_config = [
 
         'subheadline' => [
             'label' => ['Unterüberschrift'],
-            'inputType' => 'text',
+            'inputType' => 'inputUnit',
+            'options' => ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
             'eval' => [
                 'tl_class' => 'w50'
             ]
@@ -33,7 +34,25 @@ $arr_config = [
         ],
 
         'text' => [
-            'inputType' => 'standardField'
+            'label' => ['Text'],
+            'inputType' => 'textarea',
+            'eval'  => [
+                'rte'=>'tinyMCE',
+                'style' => 'height: 200px',
+                'tl_class' => 'clr'
+            ],
+        ],
+
+        'textBrightnessOnImage' => [
+            'label' => ['Texthintergrund auf Bild'],
+            'inputType' => 'select',
+            'options' => [
+                'bright' => 'hell',
+                'dark' => 'dunkel'
+            ],
+            'eval' => [
+                'tl_class' => 'w50'
+            ]
         ],
 
         'hyperlinkGroup' => [
@@ -41,6 +60,20 @@ $arr_config = [
             'inputType' => 'group'
         ],
 
+        'hyperlinkHref' => [
+            'label' => ['Button-Verlinkung'],
+            'inputType' => 'url',
+            'eval' => [
+                'tl_class' => 'w50'
+            ]
+        ],
+        'hyperlinkNewWindow' => [
+            'label' => $GLOBALS['TL_LANG']['MSC']['target'],
+            'inputType' => 'checkbox',
+            'eval' => [
+                'tl_class' => 'w50 cbx m12'
+            ]
+        ],
         'hyperlinkText' => [
             'label' => ['Button-Beschriftung'],
             'inputType' => 'text',
@@ -48,10 +81,9 @@ $arr_config = [
                 'tl_class' => 'w50'
             ]
         ],
-
-        'hyperlinkHref' => [
-            'label' => ['Button-Verlinkung'],
-            'inputType' => 'url',
+        'hyperlinkTitle' => [
+            'label' => ['Button-Titel'],
+            'inputType' => 'text',
             'eval' => [
                 'tl_class' => 'w50'
             ]
@@ -73,19 +105,15 @@ $arr_config = [
         ],
 
         'size' => [
-            'inputType' => 'standardField'
-        ],
-
-        'textBrightnessOnImage' => [
-            'label' => ['Texthelligkeit auf Bild'],
-            'inputType' => 'select',
-            'options' => [
-                'bright' => 'hell',
-                'dark' => 'dunkel'
-            ],
+            'label' => ['Bildbreite und Bildhöhe', ''],
+            'inputType' => 'imageSize',
+            'reference' => &$GLOBALS['TL_LANG']['MSC'],
             'eval' => [
+                'rgxp' => 'digit',
+                'includeBlankOption' => true,
                 'tl_class' => 'w50'
-            ]
+            ],
+            'options' => \System::getImageSizes()
         ]
     ]
 ];

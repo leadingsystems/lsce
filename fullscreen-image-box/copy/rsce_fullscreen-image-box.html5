@@ -1,0 +1,2 @@
+<?php
+include('./assets/lsce/fullscreen-image-box/template.html5');
