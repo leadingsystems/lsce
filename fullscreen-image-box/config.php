@@ -8,7 +8,7 @@ $arr_config = [
     'wrapper' => [
         'type' => 'none'
     ],
-    'standardFields' => array('cssID'),
+    'standardFields' => ['cssID'],
     'fields' => [
         'headlineGroup' => [
             'label' => ['Überschrift'],
