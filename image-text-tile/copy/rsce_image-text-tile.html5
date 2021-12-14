@@ -1,0 +1,2 @@
+<?php
+include('./assets/lsce/image-text-tile/template.html5');
