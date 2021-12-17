@@ -1,0 +1,23 @@
+$rsce_headline-extended_breakpoints-to-use: $grid-breakpoints-ls !default;
+$rsce_headline-extended_breakpoint-to-single-col-down: 8 !default;
+
+.ce_rsce_headline-extended {
+  .ce_headline {
+    width: 200/3+'%';
+
+    &.headline-single {
+      width: 100%;
+    }
+
+    @include media-breakpoint-down($rsce_headline-extended_breakpoint-to-single-col-down, $rsce_headline-extended_breakpoints-to-use) {
+      .ce_headline {
+        width: 100%;
+      }
+    }
+  }
+
+  .text {
+    text-align: right;
+    margin-left: 50/3+'%';
+  }
+}
