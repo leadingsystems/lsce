@@ -1,7 +1,27 @@
+<?php
+    $arr_sortTemp = array_map('StringUtil::binToUuid',deserialize($this->orderSRC,true));
+    $obj_images = $this->image;
+
+    if(!empty($arr_sortTemp)) {
+        $arr_order = array_map(function() {}, array_flip($arr_sortTemp));
+        foreach($obj_images as $key => $value) {
+            if(array_key_exists($value,$arr_order)) {
+                $arr_order[$value] = $value;
+                unset($obj_images[$key]);
+            }
+        }
+        if(!empty($obj_images)) {
+            $arr_order = array_merge($arr_order, array_values($obj_images));
+        }
+        $obj_images = array_values(array_filter($arr_order));
+        unset($arr_order);
+    }
+?>
+
 <div class="<?php echo $this->class; ?> block switch-gallery-slider">
     <div class="ls_switch-gallery" data-lsjs-component="switchGallery">
         <div>
-        <?php foreach ($this->image as $key => $imageId): ?>
+        <?php foreach ($obj_images as $key => $imageId): ?>
             <?php if ($imageId = $this->getImageObject($imageId, $this->size)): ?>
             <div data-lsjs-element="<?php echo ($key == 0) ? 'bigImage' : 'smallImage'; ?>">
                 <div>

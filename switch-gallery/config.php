@@ -21,6 +21,10 @@ $arr_config = [
                 'extensions' => Contao\Config::get('validImageTypes'),
                 'isGallery' => true,
                 'tl_class' => 'w50'
+            ],
+            'sql' => 'blob NULL',
+            'load_callback' => [
+                ['tl_content', 'setMultiSrcFlags']
             ]
         ],
         'size' => [
