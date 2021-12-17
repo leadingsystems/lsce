@@ -1,0 +1,2 @@
+<?php
+include('./assets/lsce/footer/template.html5');

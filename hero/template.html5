@@ -1,0 +1,52 @@
+<?php
+    ob_start();
+?>
+
+    <div class="text-box-wrapper">
+        <div class="text-container">
+            <div class="text-content">
+            <?php if($this->headline): ?>
+                <<?= $this->hl ?>>
+                <?= $this->headline ?>
+                </<?= $this->hl ?>>
+            <?php endif; ?>
+
+            <?php if($this->subheadline): ?>
+                <?php echo $this->subheadline; ?>
+            <?php endif; ?>
+
+            <?php if($this->hyperlinkText || $this->hyperlinkHref): ?>
+                <a class="hyperlink_txt" href="<?php echo $this->hyperlinkHref; ?>"<?php if($this->hyperlinkNewWindow): ?> target="_blank" rel="noopener noreferrer"<?php endif; ?> title="<?php echo $this->hyperlinkTitle ?: $this->hyperlinkText; ?>">
+                    <span><?php echo $this->hyperlinkText ?: $this->hyperlinkHref; ?></span>
+                </a>
+            <?php endif; ?>
+            </div>
+        </div>
+    </div>
+
+<?php
+    $contentHtml = ob_get_clean();
+?>
+
+<div class="<?php echo $this->class ?> block<?php echo $this->imageOption ? ' imageOption': ''; ?>"<?php echo $this->cssID; ?>>
+
+    <?php if(!$this->imageOption): ?>
+
+        <?php echo $contentHtml; ?>
+
+    <?php endif; ?>
+
+    <div class="image-wrapper">
+        <div class="image-container">
+        <?php if($image = $this->getImageObject($this->image, $this->imageSize)): ?>
+            <?php $this->insert('picture_default', $image->picture); ?>
+        <?php endif; ?>
+        </div>
+    </div>
+
+    <?php if($this->imageOption): ?>
+
+        <?php echo $contentHtml; ?>
+
+    <?php endif; ?>
+</div>
