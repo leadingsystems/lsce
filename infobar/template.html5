@@ -1,0 +1,14 @@
+<div class="<?php echo $this->class; ?> block <?php echo $this->mode; ?>">
+    <div class="inside itemCount-<?php echo count($this->boxes); ?>">
+    <?php if($this->headline): ?>
+        <<?php echo $this->hl; ?>>
+        <?php echo $this->headline; ?>
+        </<?php echo $this->hl; ?>>
+    <?php endif; ?>
+    <?php foreach ($this->boxes as $key => $item): ?>
+        <div class="item item-<?php echo $key+1; ?>">
+            <?php echo $item->text; ?>
+        </div>
+    <?php endforeach; ?>
+    </div>
+</div>
