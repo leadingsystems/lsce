@@ -1,3 +1,122 @@
 .ce_rsce_timeline {
+  position: relative;
+  max-width: 80%;
+  margin: 0 auto;
 
+  &::after {
+   content: '';
+    position: absolute;
+    width: 2px;
+    background-color: black;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -1px;
+  }
+
+  .timecontainer-wrapper {
+    padding: 10px 50px;
+    position: relative;
+    width: 50%;
+
+    .time-period {
+      display: flex;
+      align-items: center;
+      padding: 0.5rem 0;
+
+      &::after {
+        content: '';
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        right: -10px;
+        background-color: white;
+        border: 1px solid black;
+        border-radius: 50%;
+        z-index: 1;
+      }
+
+      span {
+        padding: 0.5rem 1.5rem;
+        border: 1px solid black;
+      }
+    }
+
+    &.direction-left {
+      left: 0;
+
+      .time-period {
+
+        &::before {
+          content: ' ';
+          position: absolute;
+          height: 1px;
+          width: 50px;
+          z-index: 1;
+          right: 0;
+          background-color: black;
+        }
+
+        span {
+          display: block;
+          margin-left: auto;
+        }
+      }
+
+
+    }
+
+    &.direction-right {
+      left: 50%;
+
+      .time-period {
+
+        &::before {
+          content: ' ';
+          position: absolute;
+          height: 1px;
+          width: 50px;
+          z-index: 1;
+          left: 0;
+          background-color: black;
+        }
+
+        &::after {
+          left: -10px;
+        }
+      }
+    }
+
+    //.time-period {
+    //
+    //  &::before {
+    //
+    //  }
+    //
+    //  &::after {
+    //    content: '';
+    //    position: absolute;
+    //    width: 20px;
+    //    height: 20px;
+    //    right: -10px;
+    //    background-color: white;
+    //    border: 1px solid black;
+    //    top: 15px;
+    //    border-radius: 50%;
+    //    z-index: 1;
+    //  }
+    //}
+
+    .content-wrapper {
+      background-color: grey;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+
+      .text-container,
+      .link-container {
+        padding: 1rem 1.5rem;
+      }
+    }
+  }
 }

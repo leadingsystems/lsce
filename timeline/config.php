@@ -36,8 +36,8 @@ $arr_config = [
                     'label' => ['Ausrichtung'],
                     'inputType' => 'select',
                     'options' => [
-                        'l' => 'Links',
-                        'r' => 'Rechts'
+                        'left' => 'Links',
+                        'right' => 'Rechts'
                     ],
                     'eval' => [
                         'tl_class' => 'w50'
@@ -73,47 +73,45 @@ $arr_config = [
                     ]
                 ],
 
-                'hyperlinkBoxes' => [
-                    'label' => ['Buttons'],
-                    'elementLabel' => '%s. Button',
-                    'inputType' => 'list',
-                    'fields' => [
-                        'hyperlinkHref' => [
-                            'label' => ['Button-Verlinkung'],
-                            'inputType' => 'url',
-                            'eval' => [
-                                'tl_class' => 'w50'
-                            ]
-                        ],
-                        'hyperlinkNewWindow' => [
-                            'label' => $GLOBALS['TL_LANG']['MSC']['target'],
-                            'inputType' => 'checkbox',
-                            'eval' => [
-                                'tl_class' => 'w50 cbx m12'
-                            ]
-                        ],
-                        'hyperlinkText' => [
-                            'label' => ['Button-Beschriftung'],
-                            'inputType' => 'text',
-                            'eval' => [
-                                'tl_class' => 'w50 clr'
-                            ]
-                        ],
-                        'hyperlinkTitle' => [
-                            'label' => ['Button-Titel'],
-                            'inputType' => 'text',
-                            'eval' => [
-                                'tl_class' => 'w50'
-                            ]
-                        ],
-                        'hyperlinkClass' => [
-                            'label' => ['Button-Klasse'],
-                            'inputType' => 'text',
-                            'eval' => [
-                                'tl_class' => 'w50 clr'
-                            ]
-                        ],
-                    ],
+                'linkGroup' => [
+                    'label' => ['Link'],
+                    'inputType' => 'group'
+                ],
+
+                'hyperlinkHref' => [
+                    'label' => ['Button-Verlinkung'],
+                    'inputType' => 'url',
+                    'eval' => [
+                        'tl_class' => 'w50'
+                    ]
+                ],
+                'hyperlinkNewWindow' => [
+                    'label' => $GLOBALS['TL_LANG']['MSC']['target'],
+                    'inputType' => 'checkbox',
+                    'eval' => [
+                        'tl_class' => 'w50 cbx m12'
+                    ]
+                ],
+                'hyperlinkText' => [
+                    'label' => ['Button-Beschriftung'],
+                    'inputType' => 'text',
+                    'eval' => [
+                        'tl_class' => 'w50 clr'
+                    ]
+                ],
+                'hyperlinkTitle' => [
+                    'label' => ['Button-Titel'],
+                    'inputType' => 'text',
+                    'eval' => [
+                        'tl_class' => 'w50'
+                    ]
+                ],
+                'hyperlinkClass' => [
+                    'label' => ['Button-Klasse'],
+                    'inputType' => 'text',
+                    'eval' => [
+                        'tl_class' => 'w50 clr'
+                    ]
                 ],
             ]
         ]
