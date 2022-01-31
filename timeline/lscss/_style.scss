@@ -6,8 +6,46 @@ $rsce_timeline_breakpoint-to-single-col-down: 7 !default;
   > ul {
     position: relative;
     list-style: none;
-    //max-width: 100%;
-    //margin: 0 auto;
+
+    > li {
+      position: relative;
+      width: 50%;
+
+      .time-period {
+        display: flex;
+        align-items: center;
+
+
+
+        &::before,
+        &::after {
+          content: '';
+          position: absolute;
+          z-index: 1;
+        }
+      }
+
+      &.direction-left {
+        left: 0;
+
+        .time-period {
+          > span {
+            display: block;
+            margin-left: auto;
+          }
+        }
+      }
+
+      &.direction-right {
+        left: 50%;
+      }
+
+      > div:last-child {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+      }
+    }
 
     &::after {
       content: '';
@@ -18,61 +56,24 @@ $rsce_timeline_breakpoint-to-single-col-down: 7 !default;
     }
   }
 
-  .timecontainer-wrapper {
-    position: relative;
-    width: 50%;
-
-    .time-period {
-      display: flex;
-      align-items: center;
-
-      &::after {
-        content: '';
-        position: absolute;
-        z-index: 1;
-      }
-    }
-
-    &.direction-left {
-      left: 0;
-
-      .time-period {
-        > span {
-          display: block;
-          margin-left: auto;
-        }
-      }
-    }
-
-    &.direction-right {
-      left: 50%;
-    }
-
-    .content-wrapper {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-    }
-  }
-
   @include media-breakpoint-down($rsce_timeline_breakpoint-to-single-col-down, $rsce_timeline_breakpoints-to-use) {
     > ul {
-      &::after {
-        left: 0;
-      }
-    }
+      > li {
+        width: 100%;
 
-    .timecontainer-wrapper {
-      width: 100%;
-
-      &.direction-left {
-        .time-period {
-          > span {
-            margin-left: 0;
+        &.direction-left {
+          .time-period {
+            > span {
+              margin-left: 0;
+            }
           }
         }
+        &.direction-right {
+          left: 0;
+        }
       }
-      &.direction-right {
+
+      &::after {
         left: 0;
       }
     }
