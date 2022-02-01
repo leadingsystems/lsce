@@ -1,14 +1,21 @@
+<?php $this->dumpTemplateVars() ?>
 <picture>
 <?php foreach($this->boxes as $mediaQueryElement): ?>
 
+    <?php $imageSize = null; ?>
+
     <source srcset="
     <?php foreach ($mediaQueryElement->imageElements as $imageElement): ?>
-    <?php if(true): ?>
-
-    <?php endif; ?>
+        <?php if($image = $this->getImageObject($imageElement->image)): ?>
+            <?php echo $image->src ?><?php echo $imageElement->density ? ' '.$imageElement->density : ''; ?>,
+            <?php
+                if($imageElement->density == "1x" || $imageElement->density == "") {
+                    $imageSize = $image->imgSize;
+                }
+            ?>
+        <?php endif; ?>
     <?php endforeach; ?>
-    " media="<?php echo $mediaQueryElement->mediaQuery ?>" width="" height="">
-    <?php endif; ?>
+    " media="<?php echo $mediaQueryElement->mediaQuery; ?>"<?php echo $imageSize ? ' '.$imageSize : ''; ?>>
 <?php endforeach; ?>
     <img src="" alt="" width="" height="">
 </picture>
