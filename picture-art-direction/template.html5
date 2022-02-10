@@ -5,9 +5,9 @@
     <?php $imageSize = null; ?>
 
     <source srcset="
-    <?php foreach ($mediaQueryElement->imageElements as $imageElement): ?>
+    <?php foreach ($mediaQueryElement->imageElements as $key => $imageElement): ?>
         <?php if($image = $this->getImageObject($imageElement->image)): ?>
-            <?php echo $image->src ?><?php echo $imageElement->density ? ' '.$imageElement->density : ''; ?>,
+            <?php echo ($key != 0) ? ', ': ''; echo $image->src; echo $imageElement->density ? ' '.$imageElement->density : ''; ?>
             <?php
                 if($imageElement->density == "1x" || $imageElement->density == "") {
                     $imageSize = $image->imgSize;
@@ -17,5 +17,7 @@
     <?php endforeach; ?>
     " media="<?php echo $mediaQueryElement->mediaQuery; ?>"<?php echo $imageSize ? ' '.$imageSize : ''; ?>>
 <?php endforeach; ?>
-    <img src="" alt="" width="" height="">
+<?php if($imageFallback = $this->getImageObject($this->fallbackImage)): ?>
+    <img src="<?php echo $imageFallback->src; ?>" alt="<?php echo $imageFallback->alt; ?>" itemprop="image"<?php echo $imageFallback->imgSize; ?>>
+<?php endif; ?>
 </picture>
