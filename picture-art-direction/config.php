@@ -9,6 +9,15 @@ $arr_config = [
     ],
     'standardFields' => ['cssID'],
     'fields' => [
+        'fallbackImage' => [
+            'label' => ['Fallback Bild'],
+            'inputType' => 'fileTree',
+            'eval' => [
+                'fieldType' => 'radio',
+                'filesOnly' => true,
+                'extensions' => Contao\Config::get('validImageTypes')
+            ]
+        ],
         'boxes' => [
             'label' => ['Media Queries'],
             'elementLabel' => '%s. Media Query',
