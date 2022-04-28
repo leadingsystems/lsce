@@ -9,11 +9,10 @@ $rsce_headline-extended_breakpoint-to-single-col-down: 8 !default;
       width: 100%;
       margin-bottom: 0;
     }
-
-    @include media-breakpoint-down($rsce_headline-extended_breakpoint-to-single-col-down, $rsce_headline-extended_breakpoints-to-use) {
-      .ce_headline {
-        width: 100%;
-      }
+  }
+  @include media-breakpoint-down($rsce_headline-extended_breakpoint-to-single-col-down, $rsce_headline-extended_breakpoints-to-use) {
+    .ce_headline {
+      width: 100%;
     }
   }
 
