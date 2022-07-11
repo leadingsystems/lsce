@@ -46,7 +46,7 @@
                     <nav itemscope itemtype="http://schema.org/SiteNavigationElement">
                         <ul>
                         <?php foreach ($footerbox->footerColHyperlink as $hyperlinkBox): ?>
-                            <?php $pageId = '/::'.$this->replaceInsertTags("{{page::id}}").'}}/'; ?>
+                            <?php $pageId = '/::'.$this->replaceInsertTags("{{page::id}}").'\|/'; ?>
                             <?php if(preg_match($pageId, $hyperlinkBox->hyperlinkHref)): ?>
                                 <li class="active">
                                     <strong class="active" itemprop="name"><?php echo $hyperlinkBox->hyperlinkText ?: $hyperlinkBox->hyperlinkHref; ?></strong>
