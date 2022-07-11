@@ -1,0 +1,31 @@
+<div class="<?php echo $this->class; ?> block text-background-<?php echo $this->textBrightnessOnImage; ?>"<?php echo $this->cssID; ?>>
+    <div class="image-container">
+    <?php if($image = $this->getImageObject($this->image, $this->imageSize)): ?>
+        <?php $this->insert('picture_default', $image->picture); ?>
+    <?php endif; ?>
+    </div>
+    <div class="text-box-wrapper">
+        <div class="text-container">
+        <?php if($this->headline): ?>
+            <<?php echo $this->hl; ?>>
+            <?php echo $this->headline; ?>
+            </<?php echo $this->hl; ?>>
+        <?php endif; ?>
+        <?php if($this->subheadline): ?>
+            <<?php echo $this->subheadline[unit]; ?>>
+            <?php echo $this->subheadline[value]; ?>
+            </<?php echo $this->subheadline[unit]; ?>>
+        <?php endif; ?>
+        <?php if($this->text): ?>
+            <div class="text">
+                <?php echo $this->text; ?>
+            </div>
+        <?php endif; ?>
+        <?php if($this->hyperlinkText || $this->hyperlinkHref): ?>
+            <a class="hyperlink_txt" href="<?php echo $this->hyperlinkHref; ?>"<?php if($this->hyperlinkNewWindow): ?> target="_blank" rel="noopener noreferrer"<?php endif; ?> title="<?php echo $this->hyperlinkTitle ?: $this->hyperlinkText; ?>" itemprop="url">
+                <span itemprop="name"><?php echo $this->hyperlinkText ?: $this->hyperlinkHref; ?></span>
+            </a>
+        <?php endif; ?>
+        </div>
+    </div>
+</div>

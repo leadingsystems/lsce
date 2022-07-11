@@ -1,0 +1,2 @@
+<?php
+include('./assets/lsce/switch-gallery/template.html5');
