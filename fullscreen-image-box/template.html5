@@ -12,9 +12,9 @@
             </<?php echo $this->hl; ?>>
         <?php endif; ?>
         <?php if($this->subheadline): ?>
-            <<?php echo $this->subheadline[unit]; ?>>
-            <?php echo $this->subheadline[value]; ?>
-            </<?php echo $this->subheadline[unit]; ?>>
+            <<?php echo $this->subheadline['unit']; ?>>
+            <?php echo $this->subheadline['value']; ?>
+            </<?php echo $this->subheadline['unit']; ?>>
         <?php endif; ?>
         <?php if($this->text): ?>
             <div class="text">
