@@ -1,3 +1,40 @@
 <div class="<?php echo $this->class; ?> block"<?php echo $this->cssID; ?>>
+    <div>
+        <div>
+            <div class=""contentbox-container>
+                <div class="image-container">
+                    <?php if($image = $this->getImageObject($this->image, $this->size)): ?>
+                        <?php $this->insert('picture_default', $image->picture); ?>
+                    <?php endif; ?>
+                </div>
+                <div class="text-container">
+                    <?php if($this->headline): ?>
+                    <<?php echo $this->hl; ?>>
+                    <?php echo $this->headline; ?>
+                </<?php echo $this->hl; ?>>
+                <?php endif; ?>
+                <?php if($this->text): ?>
+                    <div class="text">
+                        <?php echo $this->text; ?>
+                    </div>
+                <?php endif; ?>
+                <?php if($this->summaryLink): ?>
+                    <?php foreach ($this->hyperlinkBoxes as $hyperlinkBox): ?><a class="<?php echo $hyperlinkBox->hyperlinkClass ? $hyperlinkBox->hyperlinkClass.' ' : ''; ?>hyperlink_txt" href="<?php echo $hyperlinkBox->hyperlinkHref; ?>"<?php if($hyperlinkBox->hyperlinkNewWindow): ?> target="_blank" rel="noopener noreferrer"<?php endif; ?> title="<?php echo $hyperlinkBox->hyperlinkTitle ?: $hyperlinkBox->hyperlinkText; ?>" itemprop="url"><span itemprop="name"><?php echo $hyperlinkBox->hyperlinkText ?: $hyperlinkBox->hyperlinkHref; ?></span></a><?php endforeach; ?>
+                <?php endif; ?>
+                </div>
+            </div>
 
+            <?php if($this->summaryLink && $this->summaryDetail): ?>
+            <div class="overlay-content">
+                <summary>
+                    <?php echo $this->summaryLink; ?>
+                </summary>
+                <div class="summaryDetail">
+                    <?php echo $this->summaryDetail; ?>
+                </div>
+            </div>
+            <?php endif; ?>
+
+        </div>
+    </div>
 </div>
