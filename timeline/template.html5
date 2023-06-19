@@ -8,7 +8,7 @@
             </div>
             <?php endif; ?>
             <div class="content-wrapper">
-                <?php if($image = $this->getImageObject($timebox->image, $this->imageSize)): ?>
+                <?php if($image = $this->getImageObject($timebox->image, $this->size)): ?>
                 <div class="image-container">
                     <?php $this->insert('picture_default', $image->picture); ?>
                 </div>
