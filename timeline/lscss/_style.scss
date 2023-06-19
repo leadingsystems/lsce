@@ -1,0 +1,81 @@
+$rsce_timeline_breakpoints-to-use: $grid-breakpoints-ls !default;
+$rsce_timeline_breakpoint-to-single-col-down: 7 !default;
+
+.ce_rsce_timeline {
+
+  > ul {
+    position: relative;
+    list-style: none;
+
+    > li {
+      position: relative;
+      width: 50%;
+
+      .time-period {
+        display: flex;
+        align-items: center;
+
+
+
+        &::before,
+        &::after {
+          content: '';
+          position: absolute;
+          z-index: 1;
+        }
+      }
+
+      &.direction-left {
+        left: 0;
+
+        .time-period {
+          > span {
+            display: block;
+            margin-left: auto;
+          }
+        }
+      }
+
+      &.direction-right {
+        left: 50%;
+      }
+
+      > div:last-child {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+    }
+  }
+
+  @include media-breakpoint-down($rsce_timeline_breakpoint-to-single-col-down, $rsce_timeline_breakpoints-to-use) {
+    > ul {
+      > li {
+        width: 100%;
+
+        &.direction-left {
+          .time-period {
+            > span {
+              margin-left: 0;
+            }
+          }
+        }
+        &.direction-right {
+          left: 0;
+        }
+      }
+
+      &::after {
+        left: 0;
+      }
+    }
+  }
+}

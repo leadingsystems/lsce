@@ -1,0 +1,33 @@
+<div class="<?php echo $this->class; ?> block"<?php echo $this->cssID; ?>>
+    <ul>
+        <?php foreach ($this->boxes as $timebox): ?>
+        <li class="timecontainer-wrapper direction-<?php echo $timebox->direction; ?>">
+            <?php if($timebox->time): ?>
+            <div class="time-period">
+                <span><?php echo $timebox->time; ?></span>
+            </div>
+            <?php endif; ?>
+            <div class="content-wrapper">
+                <?php if($image = $this->getImageObject($timebox->image, $this->imageSize)): ?>
+                <div class="image-container">
+                    <?php $this->insert('picture_default', $image->picture); ?>
+                </div>
+                <?php endif; ?>
+                <?php if($timebox->text): ?>
+                <div class="text-container">
+                    <?php echo $timebox->text; ?>
+                </div>
+                <?php endif; ?>
+                <?php if($timebox->hyperlinkText || $timebox->hyperlinkHref): ?>
+                <div class="link-container">
+                    <a class="<?php echo $timebox->hyperlinkClass ? $timebox->hyperlinkClass.' ' : ''; ?>hyperlink_txt" href="<?php echo $timebox->hyperlinkHref; ?>"<?php if($timebox->hyperlinkNewWindow): ?> target="_blank" rel="noopener noreferrer"<?php endif; ?> title="<?php echo $timebox->hyperlinkTitle ?: $timebox->hyperlinkText; ?>">
+                        <span><?php echo $timebox->hyperlinkText ?: $timebox->hyperlinkHref; ?></span>
+                    </a>
+
+                </div>
+                <?php endif; ?>
+            </div>
+        </li>
+        <?php endforeach; ?>
+    </ul>
+</div>
