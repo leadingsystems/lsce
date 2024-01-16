@@ -1,0 +1,2 @@
+<?php
+include('./assets/lsce/htmlwrapper-stop/be_template.html5');
