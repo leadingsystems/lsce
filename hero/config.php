@@ -84,7 +84,7 @@ $arr_config = [
                 'includeBlankOption' => true,
                 'tl_class' => 'w50'
             ],
-            'options' => \System::getImageSizes()
+            'options' => Contao\System::getImageSizes()
         ],
         'imageOption' => [
             'label' => ['Bildoption', 'Hintergrundbild passt sich dem Textcontainer an. (object-fit = cover)'],

@@ -36,7 +36,7 @@ $arr_config = [
                 'includeBlankOption' => true,
                 'tl_class' => 'clr w50'
             ],
-            'options' => \System::getImageSizes()
+            'options' => Contao\System::getImageSizes()
         ]
     ]
 ];
