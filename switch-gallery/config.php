@@ -16,10 +16,11 @@ $arr_config = [
             'eval' => [
                 'fieldType' => 'checkbox',
                 'multiple' => true,
-                'orderField' => 'orderSRC',
+//                'orderField' => 'orderSRC',
                 'filesOnly' => true,
-                'extensions' => Contao\Config::get('validImageTypes'),
+                'extensions' => implode(',', Contao\System::getContainer()->getParameter('contao.image.valid_extensions')),
                 'isGallery' => true,
+                'isSortable' => true,
                 'tl_class' => 'w50'
             ],
             'sql' => 'blob NULL',
@@ -36,7 +37,7 @@ $arr_config = [
                 'includeBlankOption' => true,
                 'tl_class' => 'clr w50'
             ],
-            'options' => Contao\System::getImageSizes()
+            'options' => Contao\System::getContainer()->get('contao.image.sizes')->getAllOptions()
         ]
     ]
 ];

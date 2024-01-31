@@ -88,7 +88,7 @@ $arr_config = [
             'eval' => [
                 'fieldType' => 'radio',
                 'filesOnly' => true,
-                'extensions' => Contao\Config::get('validImageTypes')
+                'extensions' => implode(',', Contao\System::getContainer()->getParameter('contao.image.valid_extensions'))
             ]
         ],
 
@@ -101,7 +101,7 @@ $arr_config = [
                 'includeBlankOption' => true,
                 'tl_class' => 'w50'
             ],
-            'options' => Contao\System::getImageSizes()
+            'options' => Contao\System::getContainer()->get('contao.image.sizes')->getAllOptions()
         ],
 
         'positionGroup' => [
