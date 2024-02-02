@@ -71,7 +71,7 @@ $arr_config = [
             'eval' => [
                 'fieldType' => 'radio',
                 'filesOnly' => true,
-                'extensions' => Contao\Config::get('validImageTypes'),
+                'extensions' => implode(',', Contao\System::getContainer()->getParameter('contao.image.valid_extensions')),
                 'tl_class' => 'clr'
             ]
         ],
@@ -84,7 +84,7 @@ $arr_config = [
                 'includeBlankOption' => true,
                 'tl_class' => 'w50'
             ],
-            'options' => \System::getImageSizes()
+            'options' => Contao\System::getContainer()->get('contao.image.sizes')->getAllOptions()
         ],
         'imageOption' => [
             'label' => ['Bildoption', 'Hintergrundbild passt sich dem Textcontainer an. (object-fit = cover)'],
