@@ -16,7 +16,6 @@ $arr_config = [
             'eval' => [
                 'fieldType' => 'checkbox',
                 'multiple' => true,
-//                'orderField' => 'orderSRC',
                 'filesOnly' => true,
                 'extensions' => implode(',', Contao\System::getContainer()->getParameter('contao.image.valid_extensions')),
                 'isGallery' => true,
