@@ -7,7 +7,7 @@ $arr_config = [
     'wrapper' => [
         'type' => 'stop'
     ],
-    'beTemplate' => 'rsce_htmlwrapper-stop',
+    'beTemplate' => 'rsce_htmlwrapper-stop-be',
     'fields' => [
         'html' => [
             'inputType' => 'standardField'
