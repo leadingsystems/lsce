@@ -1,6 +1,10 @@
 Leading Systems LSCE changelog
 ===========================================
 
+##### 2.0.0 (nyr: 2024-07-24)
+ * add LSCE HTML-Wrapper
+ * improve image size options
+
 ##### 1.1.2 (2024-02-02)
  * fix some issues for Contao 5
 
