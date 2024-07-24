@@ -24,7 +24,9 @@ $arr_config = [
                 'includeBlankOption' => true,
                 'tl_class' => 'w50'
             ],
-            'options' => Contao\System::getContainer()->get('contao.image.sizes')->getAllOptions()
+            'options_callback' => static function () {
+                return Contao\System::getContainer()->get('contao.image.sizes')->getOptionsForUser(Contao\BackendUser::getInstance());
+            }
         ],
 
         'boxes' => [
