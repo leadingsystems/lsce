@@ -1,5 +1,5 @@
 <?php
-    $arr_sortTemp = array_map('StringUtil::binToUuid',deserialize($this->orderSRC,true));
+    $arr_sortTemp = array_map('\Contao\StringUtil::binToUuid',\Contao\StringUtil::deserialize($this->orderSRC,true));
     $obj_images = $this->image;
 
     if(!empty($arr_sortTemp)) {
